@@ -8,7 +8,7 @@ const educationData = [
       id: 1,
       degree: "Bachelor of Engineering",
       field: "Computer Engineering",
-      institution: "Atharva College of Engineering",
+      institution: "Mumbai University",
       location: "Mumbai, Maharashtra",
       duration: "2023 - 2027",
       gpa: "8.1/10.0",
@@ -29,16 +29,15 @@ const educationData = [
       {
       id: 2,
       degree: "Higher Secondary Certificate",
-      field: "Science (PCM + Computer Science)",
-      institution: "Mumbai University Affiliated School",
+      field: "Science (PCM)",
+      institution: "CBSE Affiliated School",
       location: "Mumbai, Maharashtra",
-      duration: "2021 - 2023",
-      percentage: "85%+",
+      duration: "2019 - 2021",
+      cgpa: "9.15",
       status: "completed",
       highlights: [
-        "Mathematics, Physics, Chemistry, Computer Science",
-        "Strong foundation in programming and logical thinking",
-        "Participated in coding competitions and hackathons",
+        "Mathematics, Physics, Chemistry",
+        "Strong foundation in logical thinking through various exams and activity",
         "Developed interest in software development and problem solving"
       ]
     }
@@ -138,12 +137,12 @@ const Education = () => {
                     </div>
                   </div>
 
-                  {/* GPA/Percentage */}
-                  {(edu.gpa || edu.percentage) && (
+                  {/* GPA/Percentage/CGPA */}
+                  {(edu.gpa || edu.percentage || edu.cgpa) && (
                     <div className="flex items-center gap-2 mb-4">
                       <Award className="w-5 h-5 text-yellow-500" />
                       <span className="font-semibold text-gray-900 dark:text-white">
-                        {edu.gpa ? `CGPA: ${edu.gpa}` : `Score: ${edu.percentage}`}
+                        {edu.gpa ? `CGPA: ${edu.gpa}` : edu.cgpa ? `CGPA: ${edu.cgpa}` : `Score: ${edu.percentage}`}
                       </span>
                     </div>
                   )}
