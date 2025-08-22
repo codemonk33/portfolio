@@ -156,11 +156,14 @@ const Contact = () => {
       // Initialize EmailJS with public key first
       emailjs.init(emailConfig.publicKey)
       
-      // Send email using EmailJS - try simpler format first
+      // Send email using EmailJS with reCAPTCHA V2 (correct parameter format)
       const result = await emailjs.send(
         emailConfig.serviceId,
         emailConfig.templateId,
-        templateParams,
+        {
+          ...templateParams,
+          'g-recaptcha-response': recaptchaToken || ''
+        },
         emailConfig.publicKey
       )
 
