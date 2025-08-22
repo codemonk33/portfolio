@@ -156,15 +156,12 @@ const Contact = () => {
       // Initialize EmailJS with public key first
       emailjs.init(emailConfig.publicKey)
       
-      // Send email using EmailJS with reCAPTCHA V2 verification
+      // Send email using EmailJS - try simpler format first
       const result = await emailjs.send(
         emailConfig.serviceId,
         emailConfig.templateId,
         templateParams,
-        {
-          publicKey: emailConfig.publicKey,
-          captchaResponse: recaptchaToken
-        }
+        emailConfig.publicKey
       )
 
       console.log('Email sent successfully:', result)
@@ -214,6 +211,14 @@ const Contact = () => {
       } else if (error.message) {
         errorMessage = error.message
       }
+      
+      // Additional debugging info
+      console.log('Full error object:', error)
+      console.log('EmailJS config being used:', {
+        serviceId: emailConfig.serviceId,
+        templateId: emailConfig.templateId,
+        publicKey: emailConfig.publicKey
+      })
       
       // Show specific error in the UI temporarily for debugging
       setErrors({ 
