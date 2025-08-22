@@ -1,0 +1,78 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="25%" style="stop-color:#1e293b"/>
+      <stop offset="50%" style="stop-color:#334155"/>
+      <stop offset="75%" style="stop-color:#475569"/>
+      <stop offset="100%" style="stop-color:#64748b"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" style="stop-color:#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8b5cf6" stop-opacity="0.12"/>
+      <stop offset="100%" style="stop-color:#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Neural network pattern -->
+  <defs>
+    <pattern id="dots" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="25" cy="25" r="1" fill="#3b82f6" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  
+  <!-- Decorative glowing circles -->
+  <circle cx="1000" cy="150" r="150" fill="url(#glow1)"/>
+  <circle cx="200" cy="500" r="120" fill="url(#glow2)"/>
+  
+  <!-- Main content -->
+  <text x="600" y="280" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" fill="url(#text)">Om Tiwari</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500" fill="#e2e8f0">Aspiring AI/ML Engineer &amp; MERN Stack Developer</text>
+  
+  <!-- Tech skill badges -->
+  <g transform="translate(280, 420)">
+    <!-- AI/ML Badge -->
+    <rect x="0" y="0" width="100" height="35" rx="17" fill="#3b82f6" opacity="0.15"/>
+    <rect x="0" y="0" width="100" height="35" rx="17" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+    <text x="50" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#3b82f6">🤖 AI/ML</text>
+    
+    <!-- Python Badge -->
+    <rect x="120" y="0" width="100" height="35" rx="17" fill="#8b5cf6" opacity="0.15"/>
+    <rect x="120" y="0" width="100" height="35" rx="17" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+    <text x="170" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">🐍 Python</text>
+    
+    <!-- React Badge -->
+    <rect x="240" y="0" width="100" height="35" rx="17" fill="#06b6d4" opacity="0.15"/>
+    <rect x="240" y="0" width="100" height="35" rx="17" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+    <text x="290" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">⚛️ React</text>
+    
+    <!-- Node.js Badge -->
+    <rect x="360" y="0" width="100" height="35" rx="17" fill="#10b981" opacity="0.15"/>
+    <rect x="360" y="0" width="100" height="35" rx="17" fill="none" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+    <text x="410" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">🚀 Node.js</text>
+    
+    <!-- MERN Badge -->
+    <rect x="480" y="0" width="100" height="35" rx="17" fill="#f59e0b" opacity="0.15"/>
+    <rect x="480" y="0" width="100" height="35" rx="17" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+    <text x="530" y="23" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">💻 MERN</text>
+  </g>
+  
+  <!-- Decorative elements in corners -->
+  <text x="80" y="80" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" opacity="0.7">Portfolio 2024</text>
+  <text x="1120" y="580" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#8b5cf6" opacity="0.7">tiwariom.netlify.app</text>
+  
+  <!-- Bottom accent gradient line -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#text)"/>
+</svg>

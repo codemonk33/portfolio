@@ -132,10 +132,11 @@ const Hero = () => {
           {/* Bio */}
           <motion.p
             variants={fadeUpVariants}
-            className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed text-center"
           >
-            A curious and passionate Computer Engineering undergrad from Mumbai University. 
-            Lifelong learner, problem solver & builder with expertise in Python, C++, JavaScript, React, and Node.js.
+            A Computer Engineering undergrad from Mumbai University, skilled in Python, C++, JavaScript, and the MERN stack. 
+            Experienced in building responsive web and mobile applications using React Native and Expo CLI. 
+            Actively exploring AI/ML while enhancing problem-solving skills through DSA and competitive programming.
           </motion.p>
 
           {/* CTA Buttons */}

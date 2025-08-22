@@ -1,12 +1,30 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Code, Database, Cloud, Palette, Wrench, Brain } from 'lucide-react'
+import { Code, Database, Cloud, Palette, Wrench, Brain, Bot } from 'lucide-react'
 import { fadeUpVariants, staggerContainerVariants, hoverVariants } from '../utils/motion'
 
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState('frontend')
+  const [activeCategory, setActiveCategory] = useState('aiml')
 
   const skillCategories = [
+    {
+      id: 'aiml',
+      name: 'AI/ML & Data Science',
+      icon: Bot,
+      color: 'from-violet-500 to-purple-600',
+      skills: [
+        { name: 'Python', level: 70, projects: ['Data Analysis', 'ML Models', 'Automation Scripts'] },
+        { name: 'TensorFlow', level: 60, projects: ['Neural Networks', 'Deep Learning', 'Image Classification'] },
+        { name: 'PyTorch', level: 55, projects: ['Research Projects', 'Computer Vision', 'NLP Models'] },
+        { name: 'Scikit-learn', level: 65, projects: ['Classification', 'Regression', 'Clustering'] },
+        { name: 'Pandas', level: 68, projects: ['Data Manipulation', 'Analysis', 'Preprocessing'] },
+        { name: 'NumPy', level: 67, projects: ['Numerical Computing', 'Array Operations', 'Mathematical Functions'] },
+        { name: 'Matplotlib/Seaborn', level: 62, projects: ['Data Visualization', 'Statistical Plots', 'Charts'] },
+        { name: 'Jupyter Notebooks', level: 70, projects: ['Data Exploration', 'Prototyping', 'Documentation'] },
+        { name: 'OpenCV', level: 52, projects: ['Computer Vision', 'Image Processing', 'Object Detection'] },
+        { name: 'Natural Language Processing', level: 58, projects: ['Text Analysis', 'Sentiment Analysis', 'Tokenization'] }
+      ]
+    },
     {
       id: 'frontend',
       name: 'Frontend Development',
@@ -68,7 +86,11 @@ const Skills = () => {
         { name: 'VS Code', level: 95, projects: ['Extensions', 'Debugging', 'Productivity'] },
         { name: 'Chrome DevTools', level: 85, projects: ['Debugging', 'Performance', 'Network'] },
         { name: 'Postman', level: 80, projects: ['API Testing', 'Collections', 'Automation'] },
-        { name: 'Framer Motion', level: 85, projects: ['Animations', 'Transitions', 'Gestures'] }
+        { name: 'Framer Motion', level: 85, projects: ['Animations', 'Transitions', 'Gestures'] },
+        { name: 'Anaconda', level: 80, projects: ['Python Environment', 'Package Management', 'Data Science'] },
+        { name: 'Google Colab', level: 85, projects: ['ML Experiments', 'GPU Computing', 'Collaboration'] },
+        { name: 'Kaggle', level: 75, projects: ['Competitions', 'Datasets', 'Community Learning'] },
+        { name: 'Weights & Biases', level: 60, projects: ['Experiment Tracking', 'Model Monitoring', 'Visualization'] }
       ]
     },
     {
@@ -106,13 +128,14 @@ const Skills = () => {
         </motion.div>
 
         {/* Category Tabs */}
-        <motion.div
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-3 mb-12 -mx-4 px-4"
-        >
+        <div className="flex justify-center mb-12 w-full">
+          <motion.div
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 max-w-4xl"
+          >
           {skillCategories.map((category) => (
             <motion.button
               key={category.id}
@@ -120,17 +143,18 @@ const Skills = () => {
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`inline-flex items-center space-x-2 px-5 py-2.5 rounded-full font-medium transition-all duration-200 whitespace-nowrap leading-none max-w-[80vw] sm:max-w-none ${
+              className={`inline-flex items-center justify-center space-x-1.5 sm:space-x-2 px-4 py-2.5 rounded-full font-medium transition-all duration-200 whitespace-nowrap text-xs sm:text-sm leading-none h-10 min-w-[140px] sm:min-w-[160px] ${
                 activeCategory === category.id
-                  ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  ? `bg-gradient-to-r ${category.color} text-white shadow-lg transform scale-105`
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:scale-105'
               }`}
             >
-              <category.icon size={20} />
+              <category.icon className="w-4 h-4 sm:w-5 sm:h-5" />
               <span className="truncate">{category.name}</span>
             </motion.button>
           ))}
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Skills Display */}
         <motion.div
@@ -251,13 +275,19 @@ const Skills = () => {
               </h4>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600 dark:text-gray-300">Machine Learning</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Deep Learning & Neural Networks</span>
                   <span className="text-xs bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full">
                     In Progress
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600 dark:text-gray-300">Blockchain Development</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Computer Vision & OpenCV</span>
+                  <span className="text-xs bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 px-2 py-1 rounded-full">
+                    Active
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">MLOps & Model Deployment</span>
                   <span className="text-xs bg-accent-100 dark:bg-accent-900 text-accent-800 dark:text-accent-200 px-2 py-1 rounded-full">
                     Planning
                   </span>
@@ -280,8 +310,9 @@ const Skills = () => {
               Always Learning
             </h3>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Technology evolves rapidly, and I'm committed to continuous learning. I regularly participate in 
-              online courses, attend tech conferences, and contribute to open-source projects to stay current.
+              The AI/ML field evolves rapidly, and I'm committed to continuous learning. I regularly participate in 
+              Kaggle competitions, complete ML courses, contribute to open-source AI projects, and stay updated with 
+              the latest research papers and industry trends.
             </p>
           </div>
         </motion.div>

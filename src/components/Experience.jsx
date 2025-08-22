@@ -114,13 +114,13 @@ const Experience = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-start"
         >
           {experienceData.map((experience, index) => (
             <motion.div
               key={experience.id}
               variants={fadeUpVariants}
-              className="relative h-[420px] sm:h-[480px] perspective-1000 w-full"
+              className="relative h-[400px] sm:h-[440px] md:h-[480px] perspective-1000 w-full"
             >
               {/* Flip Card Container */}
               <div
@@ -128,14 +128,14 @@ const Experience = () => {
               >
                 {/* Front of Card */}
                 <div className="flip-card-front">
-                  <div className="card h-full p-4 sm:p-6 flex flex-col overflow-hidden">
+                  <div className="card h-full p-3 sm:p-4 md:p-6 flex flex-col overflow-hidden">
                     {/* Header */}
-                    <div className="mb-4">
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-tight break-words hyphens-auto flex-1 min-w-0">
+                    <div className="mb-3 sm:mb-4">
+                      <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white leading-tight break-words hyphens-auto flex-1 min-w-0">
                           {experience.role}
                         </h3>
-                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap flex-shrink-0 ${
+                        <span className={`inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium whitespace-nowrap flex-shrink-0 ${
                           experience.type === 'Internship' 
                             ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
                             : experience.type === 'Freelance'
@@ -162,21 +162,21 @@ const Experience = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 flex-1 leading-relaxed break-words hyphens-auto overflow-hidden">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 flex-1 leading-relaxed break-words hyphens-auto overflow-hidden">
                       {experience.frontContent.description}
                     </p>
 
                     {/* Tech Stack */}
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 flex items-center">
-                        <Code size={16} className="mr-2 flex-shrink-0" />
+                    <div className="mb-3 sm:mb-4">
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-xs sm:text-sm mb-1.5 sm:mb-2 flex items-center">
+                        <Code size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Technologies Used
                       </h4>
-                      <div className="flex flex-wrap gap-1.5 max-h-20 overflow-hidden">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5 max-h-16 sm:max-h-20 overflow-hidden">
                         {experience.frontContent.techStack.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="px-2.5 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs rounded-full whitespace-nowrap"
+                            className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs rounded-full whitespace-nowrap"
                           >
                             {tech}
                           </span>
@@ -185,15 +185,15 @@ const Experience = () => {
                     </div>
 
                     {/* Key Achievements */}
-                    <div className="mb-4 flex-shrink-0">
-                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 flex items-center">
-                        <Award size={16} className="mr-2 flex-shrink-0" />
+                    <div className="mb-3 sm:mb-4 flex-shrink-0">
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-xs sm:text-sm mb-1.5 sm:mb-2 flex items-center">
+                        <Award size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Key Achievements
                       </h4>
-                      <ul className="space-y-1 max-h-16 overflow-hidden">
+                      <ul className="space-y-0.5 sm:space-y-1 max-h-12 sm:max-h-16 overflow-hidden">
                         {experience.frontContent.achievements.slice(0, 2).map((achievement, idx) => (
                           <li key={idx} className="flex items-start text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                            <span className="w-1.5 h-1.5 bg-primary-400 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary-400 rounded-full mt-1.5 mr-1.5 sm:mr-2 flex-shrink-0"></span>
                             <span className="break-words">{achievement}</span>
                           </li>
                         ))}
@@ -214,27 +214,27 @@ const Experience = () => {
 
                 {/* Back of Card */}
                 <div className="flip-card-back">
-                  <div className="card h-full p-4 sm:p-6 flex flex-col bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
+                  <div className="card h-full p-3 sm:p-4 md:p-6 flex flex-col bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
                     {/* Header */}
-                    <div className="mb-4">
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                    <div className="mb-3 sm:mb-4">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1">
                         Detailed Responsibilities
                       </h3>
-                      <p className="text-primary-600 dark:text-primary-400 font-medium text-sm truncate">
+                      <p className="text-primary-600 dark:text-primary-400 font-medium text-xs sm:text-sm truncate">
                         {experience.role}
                       </p>
                     </div>
 
                     {/* Responsibilities */}
-                    <div className="mb-4 flex-1 overflow-hidden">
-                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 flex items-center">
-                        <Users size={16} className="mr-2 flex-shrink-0" />
+                    <div className="mb-3 sm:mb-4 flex-1 overflow-hidden">
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-xs sm:text-sm mb-1.5 sm:mb-2 flex items-center">
+                        <Users size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Key Responsibilities
                       </h4>
-                      <ul className="space-y-1.5 max-h-48 overflow-y-auto">
+                      <ul className="space-y-1 sm:space-y-1.5 max-h-40 sm:max-h-48 overflow-y-auto">
                         {experience.backContent.responsibilities.map((responsibility, idx) => (
                           <li key={idx} className="flex items-start text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                            <span className="w-1.5 h-1.5 bg-primary-400 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary-400 rounded-full mt-1.5 mr-1.5 sm:mr-2 flex-shrink-0"></span>
                             <span className="break-words">{responsibility}</span>
                           </li>
                         ))}
@@ -242,9 +242,9 @@ const Experience = () => {
                     </div>
 
                     {/* Impact */}
-                    <div className="mb-4 flex-shrink-0">
-                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 flex items-center">
-                        <Target size={16} className="mr-2 flex-shrink-0" />
+                    <div className="mb-3 sm:mb-4 flex-shrink-0">
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-xs sm:text-sm mb-1.5 sm:mb-2 flex items-center">
+                        <Target size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Impact & Results
                       </h4>
                       <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed break-words">
@@ -276,11 +276,11 @@ const Experience = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="mt-16 text-center"
         >
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-motion-sm">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-200 dark:border-gray-700 shadow-motion-sm">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Looking Forward
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               I'm always open to new opportunities and challenges. Whether it's contributing to innovative projects, 
               learning new technologies, or collaborating with talented teams, I'm excited to continue growing in my career.
             </p>
@@ -288,9 +288,9 @@ const Experience = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleConnectWithMe}
-              className="btn-primary mt-6"
+              className="btn-primary mt-4 sm:mt-6 text-sm sm:text-base"
             >
-              <ExternalLink size={20} className="mr-2" />
+              <ExternalLink size={18} className="mr-2" />
               Connect With Me
             </motion.button>
           </div>
