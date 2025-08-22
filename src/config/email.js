@@ -12,8 +12,8 @@ export const emailConfig = {
   contactName: 'Om Tiwari',
   
   // reCAPTCHA settings (get from https://www.google.com/recaptcha/admin)
-  // IMPORTANT: Replace 'your_production_site_key_here' with your actual Site Key from Google reCAPTCHA
-  recaptchaSiteKey: import.meta.env.VITE_RECAPTCHA_SITE_KEY || 'your_production_site_key_here',
+  // Production reCAPTCHA Site Key - configured and ready
+  recaptchaSiteKey: import.meta.env.VITE_RECAPTCHA_SITE_KEY || '6Le2nq4rAAAAAMY0JzeTmvXB4jOPivy05mWjrtsX',
   
   // Rate limiting settings
   rateLimitSettings: {
