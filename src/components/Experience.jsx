@@ -114,13 +114,13 @@ const Experience = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-start"
         >
           {experienceData.map((experience, index) => (
             <motion.div
               key={experience.id}
               variants={fadeUpVariants}
-              className="relative h-[400px] sm:h-[440px] md:h-[480px] perspective-1000 w-full"
+              className="relative h-[450px] sm:h-[480px] md:h-[500px] perspective-1000 w-full"
             >
               {/* Flip Card Container */}
               <div
@@ -128,7 +128,7 @@ const Experience = () => {
               >
                 {/* Front of Card */}
                 <div className="flip-card-front">
-                  <div className="card h-full p-3 sm:p-4 md:p-6 flex flex-col overflow-hidden">
+                  <div className="card h-full p-4 sm:p-5 md:p-6 flex flex-col overflow-hidden">
                     {/* Header */}
                     <div className="mb-3 sm:mb-4">
                       <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -162,7 +162,7 @@ const Experience = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 flex-1 leading-relaxed break-words hyphens-auto overflow-hidden">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-5 flex-1 leading-relaxed break-words hyphens-auto overflow-hidden">
                       {experience.frontContent.description}
                     </p>
 
@@ -172,7 +172,7 @@ const Experience = () => {
                         <Code size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Technologies Used
                       </h4>
-                      <div className="flex flex-wrap gap-1 sm:gap-1.5 max-h-16 sm:max-h-20 overflow-hidden">
+                      <div className="flex flex-wrap gap-1.5 max-h-20 overflow-hidden">
                         {experience.frontContent.techStack.map((tech, idx) => (
                           <span
                             key={idx}
@@ -190,7 +190,7 @@ const Experience = () => {
                         <Award size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Key Achievements
                       </h4>
-                      <ul className="space-y-0.5 sm:space-y-1 max-h-12 sm:max-h-16 overflow-hidden">
+                      <ul className="space-y-1 max-h-16 overflow-hidden">
                         {experience.frontContent.achievements.slice(0, 2).map((achievement, idx) => (
                           <li key={idx} className="flex items-start text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
                             <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary-400 rounded-full mt-1.5 mr-1.5 sm:mr-2 flex-shrink-0"></span>
@@ -205,7 +205,7 @@ const Experience = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleCardFlip(experience.id)}
-                      className="mt-auto w-full btn-secondary text-sm touch-manipulation"
+                      className="mt-auto w-full btn-secondary text-sm touch-manipulation min-h-[44px]"
                     >
                       View Details
                     </motion.button>
@@ -214,7 +214,7 @@ const Experience = () => {
 
                 {/* Back of Card */}
                 <div className="flip-card-back">
-                  <div className="card h-full p-3 sm:p-4 md:p-6 flex flex-col bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
+                  <div className="card h-full p-4 sm:p-5 md:p-6 flex flex-col bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
                     {/* Header */}
                     <div className="mb-3 sm:mb-4">
                       <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1">
@@ -231,7 +231,7 @@ const Experience = () => {
                         <Users size={14} className="mr-1.5 sm:mr-2 flex-shrink-0" />
                         Key Responsibilities
                       </h4>
-                      <ul className="space-y-1 sm:space-y-1.5 max-h-40 sm:max-h-48 overflow-y-auto">
+                      <ul className="space-y-1.5 max-h-44 overflow-y-auto">
                         {experience.backContent.responsibilities.map((responsibility, idx) => (
                           <li key={idx} className="flex items-start text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
                             <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary-400 rounded-full mt-1.5 mr-1.5 sm:mr-2 flex-shrink-0"></span>
@@ -257,7 +257,7 @@ const Experience = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleCardFlip(experience.id)}
-                      className="mt-auto w-full btn-primary text-sm touch-manipulation"
+                      className="mt-auto w-full btn-primary text-sm touch-manipulation min-h-[44px]"
                     >
                       View Summary
                     </motion.button>
