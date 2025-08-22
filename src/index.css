@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme colors */
+    --color-primary-50: 239 246 255;
+    --color-primary-100: 219 234 254;
+    --color-primary-200: 191 219 254;
+    --color-primary-300: 147 197 253;
+    --color-primary-400: 96 165 250;
+    --color-primary-500: 59 130 246;
+    --color-primary-600: 37 99 235;
+    --color-primary-700: 29 78 216;
+    --color-primary-800: 30 64 175;
+    --color-primary-900: 30 58 138;
+    
+    --color-accent-50: 240 249 255;
+    --color-accent-100: 224 242 254;
+    --color-accent-200: 186 230 253;
+    --color-accent-300: 125 211 252;
+    --color-accent-400: 56 189 248;
+    --color-accent-500: 14 165 233;
+    --color-accent-600: 2 132 199;
+    --color-accent-700: 3 105 161;
+    --color-accent-800: 7 89 133;
+    --color-accent-900: 12 74 110;
+    
+    --color-bg-primary: 255 255 255;
+    --color-bg-secondary: 249 250 251;
+    --color-bg-tertiary: 243 244 246;
+    --color-text-primary: 17 24 39;
+    --color-text-secondary: 107 114 128;
+    --color-text-tertiary: 156 163 175;
+    --color-border: 229 231 235;
+  }
+
+  .dark {
+    /* Dark theme colors */
+    --color-bg-primary: 17 24 39;
+    --color-bg-secondary: 31 41 55;
+    --color-bg-tertiary: 55 65 81;
+    --color-text-primary: 243 244 246;
+    --color-text-secondary: 156 163 175;
+    --color-text-tertiary: 107 114 128;
+    --color-border: 75 85 99;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--color-bg-secondary));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-primary-400));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-primary-500));
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid rgb(var(--color-primary-500));
+    outline-offset: 2px;
+  }
+
+  /* Skip to content link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: rgb(var(--color-primary-600));
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+}
+
+@layer components {
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-motion-sm hover:shadow-motion-md;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-primary-600 border border-primary-200 hover:bg-primary-50 focus:ring-primary-500 shadow-motion-sm hover:shadow-motion-md;
+  }
+
+  .btn-ghost {
+    @apply btn text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  /* Card base styles */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-motion-sm hover:shadow-motion-md transition-all duration-200 border border-gray-200 dark:border-gray-700;
+  }
+
+  /* Section base styles */
+  .section {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-gray-900 dark:text-white mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto;
+  }
+
+  /* Container with max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* Custom animation delays for staggered animations */
+  .delay-60 { animation-delay: 60ms; }
+  .delay-120 { animation-delay: 120ms; }
+  .delay-180 { animation-delay: 180ms; }
+  .delay-240 { animation-delay: 240ms; }
+  .delay-300 { animation-delay: 300ms; }
+
+  /* 3D transform helpers for Experience flip cards */
+  .perspective-1000 { perspective: 1000px; }
+  .transform-style-preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+  .hyphens-auto { hyphens: auto; }
+} 
