@@ -7,6 +7,9 @@ export const emailConfig = {
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_m4rcqy8', 
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'nLNX9U4Cba8MV9Giq',
   
+  // Alternative user ID (same as public key for newer EmailJS versions)
+  userId: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'nLNX9U4Cba8MV9Giq',
+  
   // Contact settings
   contactEmail: 'tiwariomse@gmail.com',
   contactName: 'Om Tiwari',

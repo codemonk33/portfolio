@@ -153,12 +153,18 @@ const Contact = () => {
         submission_count: submitCount + 1
       }
 
-      // Send email using EmailJS
+      // Initialize EmailJS with public key first
+      emailjs.init(emailConfig.publicKey)
+      
+      // Send email using EmailJS with reCAPTCHA V2 verification
       const result = await emailjs.send(
         emailConfig.serviceId,
         emailConfig.templateId,
         templateParams,
-        emailConfig.publicKey
+        {
+          publicKey: emailConfig.publicKey,
+          captchaResponse: recaptchaToken
+        }
       )
 
       console.log('Email sent successfully:', result)
@@ -192,6 +198,27 @@ const Contact = () => {
       
     } catch (error) {
       console.error('Email sending failed:', error)
+      console.error('Error details:', {
+        message: error.message,
+        text: error.text,
+        status: error.status,
+        serviceId: emailConfig.serviceId,
+        templateId: emailConfig.templateId,
+        publicKey: emailConfig.publicKey
+      })
+      
+      // Set detailed error message for debugging
+      let errorMessage = 'Unknown error occurred'
+      if (error.text) {
+        errorMessage = error.text
+      } else if (error.message) {
+        errorMessage = error.message
+      }
+      
+      // Show specific error in the UI temporarily for debugging
+      setErrors({ 
+        submit: `EmailJS Error: ${errorMessage}. Check console for details.` 
+      })
       
       // Track failed submission
       if (typeof gtag !== 'undefined') {
@@ -203,7 +230,10 @@ const Contact = () => {
       }
       
       setFormStatus('error')
-      setTimeout(() => setFormStatus('idle'), 8000)
+      setTimeout(() => {
+        setFormStatus('idle')
+        setErrors({})
+      }, 12000)
     }
   }
 
@@ -626,6 +656,18 @@ const Contact = () => {
                   </>
                 )}
               </motion.button>
+
+              {/* Submit Error Display */}
+              {errors.submit && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center p-4 bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200 rounded-lg"
+                >
+                  <AlertCircle size={20} className="mr-2" />
+                  {errors.submit}
+                </motion.div>
+              )}
 
               {/* Form Status Messages */}
               <AnimatePresence>
