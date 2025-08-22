@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Download, Mail, Github, Linkedin, Code, ExternalLink, Trophy, Zap } from 'lucide-react'
 import { fadeUpVariants, slideUpVariants, hoverVariants, staggerContainerVariants } from '../utils/motion'
+import { trackResumeDownload, trackSectionView } from '../utils/analytics'
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('')
@@ -36,6 +37,50 @@ const Hero = () => {
       return () => clearTimeout(timer)
     }
   }, [currentText, currentIndex, isDeleting, texts])
+
+  // Handle resume download
+  const handleResumeDownload = () => {
+    trackResumeDownload()
+    
+    // Check if resume file exists, otherwise show alert
+    const resumePath = '/resume/RESUME.pdf'
+    
+    // Try to download, with fallback message
+    fetch(resumePath, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          // File exists, proceed with download
+          const link = document.createElement('a')
+          link.href = resumePath
+          link.download = 'Om_Tiwari_Resume.pdf'
+          link.target = '_blank'
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+        } else {
+          throw new Error('File not found')
+        }
+      })
+      .catch(() => {
+        // File doesn't exist, show professional message
+        alert('Resume is being updated! Please contact me at tiwariomse@gmail.com or connect via LinkedIn for the latest version.')
+        // Redirect to LinkedIn as fallback
+        window.open('https://www.linkedin.com/in/omtiwari666/', '_blank', 'noopener,noreferrer')
+      })
+  }
+
+  // Handle view projects scroll
+  const handleViewProjects = () => {
+    trackSectionView('projects')
+    
+    const projectsSection = document.getElementById('projects')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
 
   const socialLinks = [
     { icon: Mail, href: 'mailto:tiwariomse@gmail.com', label: 'Email', color: 'hover:text-red-500' },
@@ -94,15 +139,16 @@ const Hero = () => {
           {/* CTA Buttons */}
           <motion.div
             variants={fadeUpVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-12 w-full max-w-md sm:max-w-none mx-auto"
           >
             <motion.button
               variants={hoverVariants}
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
-              className="btn-primary group"
+              onClick={handleResumeDownload}
+              className="btn-primary group w-full sm:w-auto touch-manipulation"
             >
-              <Download size={20} className="mr-2 group-hover:animate-bounce" />
+              <Download size={18} className="mr-2 group-hover:animate-bounce flex-shrink-0" />
               Download Resume
             </motion.button>
             
@@ -110,9 +156,10 @@ const Hero = () => {
               variants={hoverVariants}
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary group"
+              onClick={handleViewProjects}
+              className="btn-secondary group w-full sm:w-auto touch-manipulation"
             >
-              <ExternalLink size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
+              <ExternalLink size={18} className="mr-2 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               View Projects
             </motion.button>
           </motion.div>
@@ -120,7 +167,7 @@ const Hero = () => {
           {/* Social Links */}
           <motion.div
             variants={fadeUpVariants}
-            className="flex justify-center items-center space-x-6"
+            className="flex justify-center items-center space-x-4 sm:space-x-6 mb-6 sm:mb-0"
           >
             {socialLinks.map((social, index) => (
               <motion.a
@@ -131,10 +178,10 @@ const Hero = () => {
                 variants={hoverVariants}
                 whileHover="hover"
                 whileTap={{ scale: 0.95 }}
-                className={`p-3 rounded-full bg-white dark:bg-gray-800 shadow-motion-sm hover:shadow-motion-md transition-all duration-200 ${social.color} border border-gray-200 dark:border-gray-700`}
+                className={`p-2.5 sm:p-3 rounded-full bg-white dark:bg-gray-800 shadow-motion-sm hover:shadow-motion-md transition-all duration-200 ${social.color} border border-gray-200 dark:border-gray-700 touch-manipulation`}
                 aria-label={social.label}
               >
-                <social.icon size={24} />
+                <social.icon size={20} className="sm:w-6 sm:h-6" />
               </motion.a>
             ))}
           </motion.div>

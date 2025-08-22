@@ -138,12 +138,12 @@ const Skills = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
         >
           {/* Progress Bars */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-              <currentCategory.icon size={28} className={`mr-3 bg-gradient-to-r ${currentCategory.color} bg-clip-text text-transparent`} />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center">
+              <currentCategory.icon size={24} className={`mr-3 sm:w-7 sm:h-7 bg-gradient-to-r ${currentCategory.color} bg-clip-text text-transparent`} />
               {currentCategory.name}
             </h3>
             

@@ -275,7 +275,7 @@ const Contact = () => {
   }, [errors.rateLimit])
 
   const getInputClasses = (fieldName) => {
-    const baseClasses = "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-200"
+    const baseClasses = "w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-200 text-base"
     const errorClasses = "border-red-300 focus:border-red-500 focus:ring-red-200"
     const normalClasses = "border-gray-300 dark:border-gray-600 focus:border-primary-500 focus:ring-primary-200 dark:bg-gray-700 dark:text-white"
     
@@ -300,7 +300,7 @@ const Contact = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             variants={fadeUpVariants}

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Education from './components/Education'
@@ -11,6 +11,8 @@ import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
 import ScrollToTop from './components/ScrollToTop'
 import { ThemeProvider } from './context/ThemeContext'
+import { initializeAnalytics } from './utils/analytics'
+import { initMobileOptimizations } from './utils/mobile'
 
 // Simple error boundary to catch runtime errors in child components
 class ErrorBoundary extends React.Component {
@@ -43,10 +45,16 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
+  // Initialize Google Analytics and mobile optimizations when the app loads
+  useEffect(() => {
+    initializeAnalytics()
+    initMobileOptimizations()
+  }, [])
+
   return (
     <ThemeProvider>
       <ErrorBoundary>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 touch-manipulation mobile-scroll-smooth">
           {/* Skip navigation for screen readers */}
           <a 
             href="#main-content" 

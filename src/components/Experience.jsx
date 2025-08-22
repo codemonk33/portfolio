@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Briefcase, Calendar, MapPin, ExternalLink, Code, Users, Target, Award } from 'lucide-react'
 import { fadeUpVariants, staggerContainerVariants, cardHoverVariants } from '../utils/motion'
+import { trackSocialClick } from '../utils/analytics'
 
 const Experience = () => {
   const [flippedCard, setFlippedCard] = useState(null)
@@ -82,6 +83,14 @@ const Experience = () => {
     setFlippedCard(flippedCard === cardId ? null : cardId)
   }
 
+  // Handle connect with me button
+  const handleConnectWithMe = () => {
+    trackSocialClick('LinkedIn', 'https://www.linkedin.com/in/omtiwari666/')
+    
+    // Open LinkedIn profile in new tab
+    window.open('https://www.linkedin.com/in/omtiwari666/', '_blank', 'noopener,noreferrer')
+  }
+
   return (
     <section id="experience" className="section bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
@@ -105,33 +114,25 @@ const Experience = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start"
         >
           {experienceData.map((experience, index) => (
             <motion.div
               key={experience.id}
               variants={fadeUpVariants}
-              className="relative h-[480px] perspective-1000 w-full"
+              className="relative h-[420px] sm:h-[480px] perspective-1000 w-full"
             >
               {/* Flip Card Container */}
-              <motion.div
-                className={`relative w-full h-full transition-all duration-500 transform-style-preserve-3d overflow-hidden ${
-                  flippedCard === experience.id ? 'rotate-y-180' : ''
-                }`}
-                style={{ transformStyle: 'preserve-3d' }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+              <div
+                className={`flip-card-inner ${flippedCard === experience.id ? 'flipped' : ''}`}
               >
                 {/* Front of Card */}
-                <motion.div
-                  className="absolute inset-0 w-full h-full backface-hidden"
-                  style={{ backfaceVisibility: 'hidden' }}
-                >
-                  <div className="card h-full p-6 flex flex-col overflow-hidden">
+                <div className="flip-card-front">
+                  <div className="card h-full p-4 sm:p-6 flex flex-col overflow-hidden">
                     {/* Header */}
                     <div className="mb-4">
                       <div className="flex items-start justify-between gap-3 mb-3">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight break-words hyphens-auto flex-1 min-w-0">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-tight break-words hyphens-auto flex-1 min-w-0">
                           {experience.role}
                         </h3>
                         <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap flex-shrink-0 ${
@@ -204,19 +205,16 @@ const Experience = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleCardFlip(experience.id)}
-                      className="mt-auto w-full btn-secondary text-sm"
+                      className="mt-auto w-full btn-secondary text-sm touch-manipulation"
                     >
                       View Details
                     </motion.button>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Back of Card */}
-                <motion.div
-                  className="absolute inset-0 w-full h-full backface-hidden rotate-y-180"
-                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                >
-                  <div className="card h-full p-6 flex flex-col bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
+                <div className="flip-card-back">
+                  <div className="card h-full p-4 sm:p-6 flex flex-col bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20">
                     {/* Header */}
                     <div className="mb-4">
                       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
@@ -259,13 +257,13 @@ const Experience = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleCardFlip(experience.id)}
-                      className="mt-auto w-full btn-primary text-sm"
+                      className="mt-auto w-full btn-primary text-sm touch-manipulation"
                     >
                       View Summary
                     </motion.button>
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -289,6 +287,7 @@ const Experience = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleConnectWithMe}
               className="btn-primary mt-6"
             >
               <ExternalLink size={20} className="mr-2" />

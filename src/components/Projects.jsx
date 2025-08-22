@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Github, Eye, X, ChevronLeft, ChevronRight, Play } from 'lucide-react'
 import { fadeUpVariants, staggerContainerVariants, hoverVariants, scaleInVariants } from '../utils/motion'
+import { trackProjectView, trackSocialClick } from '../utils/analytics'
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -169,6 +170,7 @@ const Projects = () => {
   }
 
   const openProject = (project) => {
+    trackProjectView(project.title, project.category)
     setSelectedProject(project)
     setCurrentImageIndex(0)
   }
@@ -176,6 +178,20 @@ const Projects = () => {
   const closeProject = () => {
     setSelectedProject(null)
     setCurrentImageIndex(0)
+  }
+
+  // Handle collaboration button
+  const handleCollaboration = () => {
+    trackSocialClick('Contact', '#contact')
+    
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
   }
 
   return (
@@ -209,7 +225,7 @@ const Projects = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 justify-items-center"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center"
         >
           {projectsData.map((project, index) => (
             <motion.div
@@ -516,6 +532,7 @@ const Projects = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleCollaboration}
               className="btn-primary"
             >
               <ExternalLink size={20} className="mr-2" />
