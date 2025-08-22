@@ -116,15 +116,17 @@ const Hero = () => {
             variants={slideUpVariants}
             className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 h-12 flex items-center justify-center"
           >
-            <span className="mr-2">I'm a</span>
-            <span className="text-primary-600 dark:text-primary-400 font-semibold min-w-[300px] text-left">
-              {currentText}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-0.5 h-8 bg-primary-600 dark:bg-primary-400 ml-1"
-              />
-            </span>
+            <div className="text-center">
+              I'm a{' '}
+              <span className="text-primary-600 dark:text-primary-400 font-semibold">
+                {currentText}
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block w-0.5 h-8 bg-primary-600 dark:bg-primary-400 ml-1"
+                />
+              </span>
+            </div>
           </motion.div>
 
           {/* Bio */}
