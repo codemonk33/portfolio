@@ -340,11 +340,12 @@ const Certifications = () => {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           href={selectedCert.downloadUrl}
-                          download
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center justify-center w-full btn-primary"
                         >
-                          <Download size={20} className="mr-2" />
-                          Download Certificate
+                          <ExternalLink size={20} className="mr-2" />
+                          Preview Certificate
                         </motion.a>
                       </div>
                     </div>
