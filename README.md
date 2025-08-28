@@ -400,17 +400,6 @@ npm run setup:analytics # Analytics setup wizard (if implemented)
 
 ## 🎯 Deployment Options
 
-### **Vercel (Recommended)**
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy with single command
-vercel
-
-# Or connect GitHub repo for auto-deploys
-```
-
 ### **Netlify**
 ```bash
 # Install Netlify CLI  
@@ -457,10 +446,6 @@ npm run build
 3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
 4. **Push** to the branch (`git push origin feature/amazing-feature`)
 5. **Open** a Pull Request
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
