@@ -2,7 +2,7 @@
 
 A cutting-edge, fully-functional portfolio website showcasing modern web development practices. Built with React, Framer Motion, and Tailwind CSS, featuring real email integration, analytics, security, and comprehensive mobile optimization.
 
-![Portfolio Preview](https://tiwariom.netlify.app)
+
 
 ## 🌟 Live Demo
 
