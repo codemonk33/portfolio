@@ -138,7 +138,6 @@ const Certifications = () => {
                   whileHover="hover"
                   className="card overflow-hidden cursor-pointer h-full"
                   onClick={() => openCert(cert)}
-                  onTouchStart={() => openCert(cert)}
                 >
                 {/* Certificate Image */}
                 <div className="relative overflow-hidden h-48">
