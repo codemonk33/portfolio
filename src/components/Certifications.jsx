@@ -18,8 +18,8 @@ const Certifications = () => {
       description: "Comprehensive certification covering AWS development services, best practices, and architectural patterns.",
       skills: ["AWS Lambda", "DynamoDB", "API Gateway", "CloudFormation", "S3", "EC2"],
       validity: "3 years",
-      verificationUrl: "https://aws.amazon.com/verification",
-      downloadUrl: "/certificates/aws-developer.pdf"
+      verificationUrl: "https://aws.amazon.com/certification/certified-developer-associate/",
+      downloadUrl: "https://aws.amazon.com/certification/certified-developer-associate/"
     },
     {
       id: 2,
@@ -32,8 +32,8 @@ const Certifications = () => {
       description: "Advanced certification demonstrating expertise in Google Cloud Platform development and deployment.",
       skills: ["Cloud Functions", "Cloud Run", "BigQuery", "Pub/Sub", "Cloud Storage", "Kubernetes"],
       validity: "2 years",
-      verificationUrl: "https://cloud.google.com/certification",
-      downloadUrl: "/certificates/gcp-developer.pdf"
+      verificationUrl: "https://cloud.google.com/certification/cloud-developer",
+      downloadUrl: "https://cloud.google.com/certification/cloud-developer"
     },
     {
       id: 3,
@@ -46,8 +46,8 @@ const Certifications = () => {
       description: "Professional certification for Azure cloud development and solution architecture.",
       skills: ["Azure Functions", "Cosmos DB", "App Service", "Service Bus", "Blob Storage", "Azure DevOps"],
       validity: "2 years",
-      verificationUrl: "https://www.microsoft.com/en-us/learning/certification",
-      downloadUrl: "/certificates/azure-developer.pdf"
+      verificationUrl: "https://www.microsoft.com/en-us/learning/certification/azure-developer-associate/",
+      downloadUrl: "https://www.microsoft.com/en-us/learning/certification/azure-developer-associate/"
     },
     {
       id: 4,
@@ -60,8 +60,8 @@ const Certifications = () => {
       description: "Professional certification demonstrating expertise in Scrum methodology and agile project management.",
       skills: ["Scrum Framework", "Agile Principles", "Team Facilitation", "Sprint Planning", "Retrospectives"],
       validity: "2 years",
-      verificationUrl: "https://www.scrumalliance.org/verify",
-      downloadUrl: "/certificates/csm.pdf"
+      verificationUrl: "https://www.scrumalliance.org/certifications/certified-scrum-master",
+      downloadUrl: "https://www.scrumalliance.org/certifications/certified-scrum-master"
     },
     {
       id: 5,
@@ -75,7 +75,7 @@ const Certifications = () => {
       skills: ["MongoDB Atlas", "Aggregation Pipeline", "Indexing", "Sharding", "Replication", "Data Modeling"],
       validity: "3 years",
       verificationUrl: "https://university.mongodb.com/course_completion",
-      downloadUrl: "/certificates/mongodb-developer.pdf"
+      downloadUrl: "https://university.mongodb.com/course_completion"
     },
     {
       id: 6,
@@ -89,7 +89,7 @@ const Certifications = () => {
       skills: ["React Hooks", "Context API", "Performance Optimization", "Testing", "State Management", "Component Design"],
       validity: "2 years",
       verificationUrl: "https://www.meta.com/certification",
-      downloadUrl: "/certificates/react-developer.pdf"
+      downloadUrl: "https://www.meta.com/certification"
     }
   ]
 
@@ -133,12 +133,13 @@ const Certifications = () => {
               variants={fadeUpVariants}
               className="group"
             >
-              <motion.div
-                variants={hoverVariants}
-                whileHover="hover"
-                className="card overflow-hidden cursor-pointer h-full"
-                onClick={() => openCert(cert)}
-              >
+                              <motion.div
+                  variants={hoverVariants}
+                  whileHover="hover"
+                  className="card overflow-hidden cursor-pointer h-full"
+                  onClick={() => openCert(cert)}
+                  onTouchStart={() => openCert(cert)}
+                >
                 {/* Certificate Image */}
                 <div className="relative overflow-hidden h-48">
                   <img
@@ -219,13 +220,14 @@ const Certifications = () => {
         {/* Certificate Modal */}
         <AnimatePresence>
           {selectedCert && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-              onClick={closeCert}
-            >
+                         <motion.div
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+               onClick={closeCert}
+               onTouchStart={closeCert}
+             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -245,14 +247,18 @@ const Certifications = () => {
                         {selectedCert.issuer} • {selectedCert.date}
                       </p>
                     </div>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={closeCert}
-                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-                    >
-                      <X size={24} />
-                    </motion.button>
+                                         <motion.button
+                       whileHover={{ scale: 1.1 }}
+                       whileTap={{ scale: 0.9 }}
+                       onClick={(e) => {
+                         e.stopPropagation();
+                         closeCert();
+                       }}
+                       onTouchStart={(e) => e.stopPropagation()}
+                       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                     >
+                       <X size={24} />
+                     </motion.button>
                   </div>
                 </div>
 
@@ -331,6 +337,8 @@ const Certifications = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center justify-center w-full btn-secondary"
+                          onClick={(e) => e.stopPropagation()}
+                          onTouchStart={(e) => e.stopPropagation()}
                         >
                           <ExternalLink size={20} className="mr-2" />
                           Verify Credential
@@ -343,6 +351,8 @@ const Certifications = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center justify-center w-full btn-primary"
+                          onClick={(e) => e.stopPropagation()}
+                          onTouchStart={(e) => e.stopPropagation()}
                         >
                           <ExternalLink size={20} className="mr-2" />
                           Preview Certificate

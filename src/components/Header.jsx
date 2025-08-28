@@ -30,9 +30,16 @@ const Header = () => {
   const scrollToSection = (href) => {
     const element = document.querySelector(href)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      // Close mobile menu first
+      setIsMobileMenuOpen(false)
+      // Small delay to ensure menu closes before scrolling
+      setTimeout(() => {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }, 100)
     }
-    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -129,22 +136,20 @@ const Header = () => {
               className="md:hidden overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
             >
               <div className="py-4 space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(item.href)
-                    }}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 rounded-lg mx-2"
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
+                                 {navItems.map((item, index) => (
+                   <motion.button
+                     key={item.name}
+                     onClick={() => scrollToSection(item.href)}
+                     initial={{ x: -20, opacity: 0 }}
+                     animate={{ x: 0, opacity: 1 }}
+                     transition={{ delay: index * 0.1 }}
+                     whileHover={{ scale: 1.02 }}
+                     whileTap={{ scale: 0.98 }}
+                     className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 rounded-lg mx-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                   >
+                     {item.name}
+                   </motion.button>
+                 ))}
               </div>
             </motion.div>
           )}
