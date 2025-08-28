@@ -2,11 +2,11 @@
 
 A cutting-edge, fully-functional portfolio website showcasing modern web development practices. Built with React, Framer Motion, and Tailwind CSS, featuring real email integration, analytics, security, and comprehensive mobile optimization.
 
-![Portfolio Preview](https://via.placeholder.com/800x400/2563eb/ffffff?text=Om+Tiwari+Portfolio)
+![Portfolio Preview](https://tiwariom.netlify.app)
 
 ## 🌟 Live Demo
 
-🔗 **[View Live Portfolio](https://omtiwari.dev)** | 📧 **Contact: tiwariomse@gmail.com** | 📱 **+91 63947 28539**
+🔗 **[View Live Portfolio](https://tiwariom.netlify.app)** | 📧 **Contact: tiwariomse@gmail.com** | 📱 **+91 63947 28539**
 
 ## ✨ Features Overview
 
