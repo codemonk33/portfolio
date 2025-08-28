@@ -10,62 +10,13 @@ const Projects = () => {
 
   const projectsData = [
     {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
-      longDescription: "This comprehensive e-commerce solution features a modern React frontend with TypeScript, a robust Node.js backend with Express, and MongoDB for data persistence. The platform includes advanced features like real-time inventory management, user reviews and ratings, order tracking, and a responsive admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      images: [
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
-      ],
-      techStack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Stripe"],
-      features: [
-        "User authentication & authorization",
-        "Product catalog with search & filters",
-        "Shopping cart & checkout process",
-        "Payment integration with Stripe",
-        "Admin dashboard for management",
-        "Responsive design for all devices"
-      ],
-      github: "https://github.com/omtiwari/ecommerce",
-      live: "https://ecommerce-demo.omtiwari.dev",
-      category: "Full-Stack",
-      status: "Completed"
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, team collaboration, and progress tracking.",
-      longDescription: "Built with Next.js and Firebase, this task management app enables teams to collaborate effectively on projects. Features include real-time updates, drag-and-drop task organization, team member management, and comprehensive progress analytics.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-      images: [
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop"
-      ],
-      techStack: ["Next.js", "Firebase", "Tailwind CSS", "Framer Motion", "TypeScript"],
-      features: [
-        "Real-time task updates",
-        "Team collaboration tools",
-        "Drag & drop organization",
-        "Progress tracking & analytics",
-        "Mobile-responsive design",
-        "Push notifications"
-      ],
-      github: "https://github.com/omtiwari/task-manager",
-      live: "https://task-manager.omtiwari.dev",
-      category: "Frontend",
-      status: "Completed"
-    },
-    {
       id: 3,
       title: "Portfolio Website",
       description: "A modern, responsive portfolio website showcasing my work with smooth animations and interactive elements.",
       longDescription: "This portfolio website demonstrates modern web development practices with smooth animations, responsive design, and accessibility features. Built with React and Framer Motion, it showcases my skills and projects in an engaging way.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+      image: "/potfolio_image.jpeg",
       images: [
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop"
+        "/potfolio_image.jpeg"
       ],
       techStack: ["React", "Framer Motion", "Tailwind CSS", "Vite", "JavaScript"],
       features: [
@@ -76,43 +27,65 @@ const Projects = () => {
         "Contact form integration",
         "SEO optimization"
       ],
-      github: "https://github.com/omtiwari/portfolio",
-      live: "https://omtiwari.dev",
+      github: "https://github.com/codemonk33/portfolio",
+      live: "https://tiwariom.netlify.app/",
       category: "Frontend",
       status: "Completed"
     },
     {
-      id: 4,
-      title: "Weather Dashboard",
-      description: "A weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      longDescription: "This weather dashboard provides comprehensive weather information with interactive maps, detailed forecasts, and historical data analysis. Users can save favorite locations and receive weather alerts.",
-      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop",
+      id: 2,
+      title: "Task Management App",
+      description: "A collaborative task management application with real-time updates, team collaboration, and progress tracking.",
+      longDescription: "Built with Next.js and Firebase, this task management app enables teams to collaborate effectively on projects. Features include real-time updates, drag-and-drop task organization, team member management, and comprehensive progress analytics.",
+      image: "/Task Management  App.jpg",
       images: [
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop"
+        "/Task Management  App.jpg"
       ],
-      techStack: ["React", "OpenWeather API", "Chart.js", "Leaflet Maps", "CSS Modules"],
+      techStack: ["Next.js", "Firebase", "Tailwind CSS", "Framer Motion", "TypeScript"],
       features: [
-        "Location-based weather data",
-        "Interactive weather maps",
-        "7-day forecast",
-        "Weather alerts & notifications",
-        "Historical data charts",
-        "Favorite locations"
+        "Real-time task updates",
+        "Team collaboration tools",
+        "Drag & drop organization",
+        "Progress tracking & analytics",
+        "Mobile-responsive design",
+        "Push notifications"
       ],
-      github: "https://github.com/omtiwari/weather-app",
-      live: "https://weather.omtiwari.dev",
-      category: "Frontend",
+      github: "https://github.com/codemonk33/Task_mangement_app",
+      live: "https://task-manager.omtiwari.dev",
+      category: "Mobile App",
+      status: "In Progress"
+    },
+    {
+      id: 1,
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
+      longDescription: "This comprehensive e-commerce solution features a modern React frontend with TypeScript, a robust Node.js backend with Express, and MongoDB for data persistence. The platform includes advanced features like real-time inventory management, user reviews and ratings, order tracking, and a responsive admin dashboard.",
+      image: "/e-commerce website.jpg",
+      images: [
+        "/e-commerce website.jpg"
+      ],
+      techStack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Stripe"],
+      features: [
+        "User authentication & authorization",
+        "Product catalog with search & filters",
+        "Shopping cart & checkout process",
+        "Payment integration with Stripe",
+        "Admin dashboard for management",
+        "Responsive design for all devices"
+      ],
+      github: "https://github.com/codemonk33/E-commerce-website",
+      live: "https://sellonlinestore.netlify.app/",
+      category: "Full-Stack",
       status: "In Progress"
     },
     {
       id: 5,
-      title: "Blog Platform",
+      title: "Cure-AI a Health App",
       description: "A content management system for blogs with markdown support, user management, and SEO optimization.",
       longDescription: "A full-featured blog platform built with Next.js and Prisma, featuring markdown support, user authentication, content management, and advanced SEO features. Includes an admin panel for content creators.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+      image: "/Health App.jpg",
       images: [
-        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop"
+        "/Health App.jpg"
       ],
       techStack: ["Next.js", "Prisma", "PostgreSQL", "Markdown", "Tailwind CSS"],
       features: [
@@ -123,9 +96,32 @@ const Projects = () => {
         "Comment system",
         "Admin dashboard"
       ],
-      github: "https://github.com/omtiwari/blog-platform",
+      github: "https://github.com/codemonk33/health-app",
       live: "https://blog.omtiwari.dev",
-      category: "Full-Stack",
+      category: "Mobile App",
+      status: "In Progress"
+    },
+    {
+      id: 4,
+      title: "Green-Scan AI",
+      description: "A weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
+      longDescription: "This weather dashboard provides comprehensive weather information with interactive maps, detailed forecasts, and historical data analysis. Users can save favorite locations and receive weather alerts.",
+      image: "/Green-scan AI.jpg",
+      images: [
+        "/Green-scan AI.jpg"
+      ],
+      techStack: ["React", "OpenWeather API", "Chart.js", "Leaflet Maps", "CSS Modules"],
+      features: [
+        "Location-based weather data",
+        "Interactive weather maps",
+        "7-day forecast",
+        "Weather alerts & notifications",
+        "Historical data charts",
+        "Favorite locations"
+      ],
+      github: "https://github.com/codemonk33/GreenScan-AI-Based-Deforestation-and-Land-Use-Monitoring",
+      live: "https://weather.omtiwari.dev",
+      category: "AI/ML",
       status: "Planning"
     },
     {
@@ -133,9 +129,9 @@ const Projects = () => {
       title: "AI Chat Assistant",
       description: "An intelligent chat assistant powered by machine learning for customer support and user interaction.",
       longDescription: "This AI-powered chat assistant uses natural language processing to provide intelligent responses to user queries. It can handle customer support, answer questions, and provide helpful information in real-time.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      image: "/AI chatbot.jpg",
       images: [
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop"
+        "/AI chatbot.jpg"
       ],
       techStack: ["Python", "TensorFlow", "React", "FastAPI", "PostgreSQL"],
       features: [
@@ -146,7 +142,7 @@ const Projects = () => {
         "Integration with databases",
         "Analytics dashboard"
       ],
-      github: "https://github.com/omtiwari/ai-chat",
+      github: "https://github.com/codemonk33/chatbot-assistant",
       live: "https://ai-chat.omtiwari.dev",
       category: "AI/ML",
       status: "Planning"
@@ -225,7 +221,7 @@ const Projects = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center"
         >
           {projectsData.map((project, index) => (
             <motion.div
@@ -240,10 +236,11 @@ const Projects = () => {
                 onClick={() => openProject(project)}
               >
                 {/* Project Image */}
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-48 sm:h-52">
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -272,7 +269,7 @@ const Projects = () => {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6 flex-1 flex flex-col min-h-0">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col min-h-0">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight break-words">
                     {project.title}
                   </h3>
@@ -355,7 +352,7 @@ const Projects = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Modal Header */}
-                <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div className="p-5 sm:p-6 border-b border-gray-200 dark:border-gray-700">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight break-words">
@@ -377,13 +374,14 @@ const Projects = () => {
                 </div>
 
                 {/* Modal Content */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   {/* Image Carousel */}
                   <div className="relative mb-6">
-                    <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+                    <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden">
                       <img
                         src={selectedProject.images[currentImageIndex]}
                         alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                       

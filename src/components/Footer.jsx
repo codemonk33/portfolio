@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Heart, Code, Trophy, Zap } from 'lucide-react'
+import { Github, Linkedin, Mail, Heart, Code, Trophy, Zap, Instagram, Twitter } from 'lucide-react'
 import { fadeUpVariants } from '../utils/motion'
 
 const Footer = () => {
@@ -18,6 +18,18 @@ const Footer = () => {
       icon: Linkedin,
       url: 'https://www.linkedin.com/in/omtiwari666/',
       color: 'hover:text-blue-600'
+    },
+    {
+      name: 'Instagram',
+      icon: Instagram,
+      url: 'https://www.instagram.com/tiwari_om11/?igsh=MWRoYWJoN2c3OGpuNQ%3D%3D#',
+      color: 'hover:text-pink-500'
+    },
+    {
+      name: 'Twitter',
+      icon: Twitter,
+      url: 'https://x.com/codemonk66',
+      color: 'hover:text-sky-500'
     },
     {
       name: 'LeetCode',
@@ -69,7 +81,7 @@ const Footer = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
           >
             {/* Brand Section */}
             <div className="lg:col-span-2">
@@ -83,7 +95,7 @@ const Footer = () => {
                 A passionate Computer Engineering student and Software Developer, 
                 dedicated to creating innovative solutions and building the future of technology.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.name}
@@ -92,10 +104,10 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`p-3 rounded-full bg-gray-800 dark:bg-gray-700 text-gray-300 transition-all duration-200 ${social.color}`}
+                    className={`p-2.5 sm:p-3 rounded-full bg-gray-800 dark:bg-gray-700 text-gray-300 transition-all duration-200 ${social.color}`}
                     aria-label={social.name}
                   >
-                    <social.icon size={20} />
+                    <social.icon size={18} />
                   </motion.a>
                 ))}
               </div>

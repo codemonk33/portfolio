@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Code, ExternalLink, Trophy, Zap, Shield, BarChart3 } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Github, Linkedin, Code, ExternalLink, Trophy, Zap, Shield, BarChart3, Instagram, Twitter } from 'lucide-react'
 import emailjs from 'emailjs-com'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { fadeUpVariants, staggerContainerVariants, hoverVariants } from '../utils/motion'
@@ -62,6 +62,20 @@ const Contact = () => {
       url: 'https://www.linkedin.com/in/omtiwari666/',
       color: 'hover:text-blue-600',
       bgColor: 'bg-blue-100 dark:bg-blue-900'
+    },
+    {
+      name: 'Instagram',
+      icon: Instagram,
+      url: 'https://www.instagram.com/tiwari_om11/?igsh=MWRoYWJoN2c3OGpuNQ%3D%3D#',
+      color: 'hover:text-pink-500',
+      bgColor: 'bg-pink-100 dark:bg-pink-900'
+    },
+    {
+      name: 'Twitter',
+      icon: Twitter,
+      url: 'https://x.com/codemonk66',
+      color: 'hover:text-sky-500',
+      bgColor: 'bg-sky-100 dark:bg-sky-900'
     },
     {
       name: 'LeetCode',
@@ -338,7 +352,7 @@ const Contact = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             variants={fadeUpVariants}
@@ -389,7 +403,7 @@ const Contact = () => {
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Follow Me
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.name}
@@ -399,10 +413,10 @@ const Contact = () => {
                     variants={hoverVariants}
                     whileHover="hover"
                     whileTap={{ scale: 0.95 }}
-                    className={`p-3 rounded-full ${social.bgColor} ${social.color} transition-all duration-200`}
+                    className={`p-2.5 sm:p-3 rounded-full ${social.bgColor} ${social.color} transition-all duration-200`}
                     aria-label={social.name}
                   >
-                    <social.icon size={24} />
+                    <social.icon size={20} />
                   </motion.a>
                 ))}
               </div>
@@ -426,7 +440,7 @@ const Contact = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-motion-sm border border-gray-200 dark:border-gray-700"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-motion-sm border border-gray-200 dark:border-gray-700"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send a Message

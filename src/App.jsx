@@ -54,7 +54,7 @@ function App() {
   return (
     <ThemeProvider>
       <ErrorBoundary>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 touch-manipulation mobile-scroll-smooth">
+        <div className="min-h-screen-mobile bg-gray-50 dark:bg-gray-900 touch-manipulation mobile-scroll-smooth overflow-x-clip w-full max-w-full">
           {/* Skip navigation for screen readers */}
           <a 
             href="#main-content" 

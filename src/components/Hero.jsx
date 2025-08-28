@@ -92,7 +92,7 @@ const Hero = () => {
   ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section id="home" className="relative min-h-screen-mobile flex items-center justify-center pt-14 sm:pt-16 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-x-clip w-full max-w-full">
       <div className="container-custom">
         <motion.div
           variants={staggerContainerVariants}
@@ -103,7 +103,7 @@ const Hero = () => {
           {/* Main Heading */}
           <motion.h1
             variants={fadeUpVariants}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-6"
           >
             Hi, I'm{' '}
             <span className="text-gradient bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 bg-clip-text text-transparent">
@@ -114,7 +114,7 @@ const Hero = () => {
           {/* Typewriter Tagline */}
           <motion.div
             variants={slideUpVariants}
-            className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 h-12 flex items-center justify-center"
+            className="text-lg sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 h-10 sm:h-12 flex items-center justify-center"
           >
             <div className="text-center">
               I'm a{' '}

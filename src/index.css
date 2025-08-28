@@ -36,6 +36,19 @@
     --color-border: 229 231 235;
   }
 
+  /* Completely prevent horizontal overflow and scrollbars */
+  html, body, #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
   .dark {
     /* Dark theme colors */
     --color-bg-primary: 17 24 39;
@@ -47,22 +60,34 @@
     --color-border: 75 85 99;
   }
 
-  /* Custom scrollbar */
+  /* Ensure consistent background throughout */
+  html { 
+    scrollbar-gutter: stable;
+    background-color: #374151;
+  }
+  body { 
+    background-color: #374151;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Custom scrollbar - match background to eliminate white strip */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 0px;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgb(var(--color-bg-secondary));
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgb(var(--color-primary-400));
-    border-radius: 4px;
+    background: transparent;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(var(--color-primary-500));
+  
+  /* Firefox - hide scrollbar */
+  * {
+    scrollbar-width: none;
   }
 
   /* Reduced motion preferences */
@@ -137,7 +162,7 @@
 
   /* Section base styles */
   .section {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+    @apply py-16 px-4 sm:px-6 lg:px-8 overflow-x-clip w-full max-w-full;
   }
 
   /* Mobile-optimized section spacing */
