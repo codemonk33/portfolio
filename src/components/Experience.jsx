@@ -40,7 +40,7 @@ const Experience = () => {
       type: "Volunteer",
       frontContent: {
         description: "Built modern, responsive web applications for various College events. Focused on creating intuitive user interfaces and optimizing performance.",
-        techStack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Netlify"],
+        techStack: ["React", "JavaScript", "Tailwind CSS", "Framer Motion", "Netlify"],
         achievements: ["Completed 5 college events projects", "Maintained 100% event satisfaction"]
       },
       backContent: {
@@ -64,7 +64,7 @@ const Experience = () => {
       frontContent: {
         description: "Active contributor to open source projects. Focus on improving documentation, fixing bugs, and adding new features.",
         techStack: ["JavaScript", "Python", "Git", "GitHub", "Documentation"],
-        achievements: ["10+ contributions", "3   projects maintained"]
+        achievements: ["5+ contributions", "2   projects maintained"]
       },
       backContent: {
         responsibilities: [
