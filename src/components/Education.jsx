@@ -27,7 +27,8 @@ const educationData = [
       projects: [
         "CureAi - AI Health Guide",
         "To-Do List Mobile App",
-        "Green-Scan AI , Portfolio"
+        "Green-Scan AI", 
+        "Portfolio"
       ]
     },
       {
