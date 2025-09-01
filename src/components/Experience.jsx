@@ -11,9 +11,9 @@ const Experience = () => {
     {
       id: 1,
       role: "Software Development Intern",
-      company: "TechCorp Solutions",
+      company: "Prodigy Infotech",
       location: "Mumbai, India",
-      duration: "May 2024 - Aug 2024",
+      duration: "jan 2024 - Feb 2024",
       type: "Internship",
       frontContent: {
         description: "Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
@@ -34,24 +34,24 @@ const Experience = () => {
     {
       id: 2,
       role: "Frontend Developer",
-      company: "StartupHub",
-      location: "Remote",
-      duration: "Jan 2024 - Apr 2024",
-      type: "Freelance",
+      company: "Student Club",
+      location: "Mumbai, India",
+      duration: "Ongoing",
+      type: "Volunteer",
       frontContent: {
-        description: "Built modern, responsive web applications for various clients. Focused on creating intuitive user interfaces and optimizing performance.",
-        techStack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-        achievements: ["Completed 5 client projects", "Maintained 100% client satisfaction"]
+        description: "Built modern, responsive web applications for various College events. Focused on creating intuitive user interfaces and optimizing performance.",
+        techStack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Netlify"],
+        achievements: ["Completed 5 college events projects", "Maintained 100% event satisfaction"]
       },
       backContent: {
         responsibilities: [
-          "Designed and developed custom web applications for clients",
+          "Designed and developed custom web applications for events",
           "Implemented responsive design principles and accessibility features",
           "Optimized applications for performance and SEO",
           "Provided ongoing maintenance and support for deployed applications",
-          "Collaborated with clients to understand requirements and provide solutions"
+          "Collaborated with club members to understand requirements and provide solutions"
         ],
-        impact: "Helped clients increase their online presence and user engagement through modern, performant web applications."
+        impact: "Helped club members increase their online presence and event engagement through modern, performant web applications."
       }
     },
     {
@@ -64,7 +64,7 @@ const Experience = () => {
       frontContent: {
         description: "Active contributor to open source projects. Focus on improving documentation, fixing bugs, and adding new features.",
         techStack: ["JavaScript", "Python", "Git", "GitHub", "Documentation"],
-        achievements: ["50+ contributions", "5 projects maintained"]
+        achievements: ["10+ contributions", "3   projects maintained"]
       },
       backContent: {
         responsibilities: [

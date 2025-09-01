@@ -15,7 +15,7 @@ const educationData = [
       status: "current",
       highlights: [
         "Current GPA: 8.1 - Consistent academic performance",
-        "Programming Languages: C, C++, Python, JavaScript",
+        "Programming Languages: C, C++,Java, Python, JavaScript",
         "Web Technologies: React, React Native, Node.js, MongoDB",
         "Problem Solving: Active on LeetCode, Codeforces, CodeChef",
         "Projects: CureAi (React Native health app), To-Do List app"

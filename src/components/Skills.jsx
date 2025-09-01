@@ -13,16 +13,16 @@ const Skills = () => {
       icon: Bot,
       color: 'from-violet-500 to-purple-600',
       skills: [
-        { name: 'Python', level: 70, projects: ['Data Analysis', 'ML Models', 'Automation Scripts'] },
-        { name: 'TensorFlow', level: 60, projects: ['Neural Networks', 'Deep Learning', 'Image Classification'] },
+        { name: 'Python', level: 55, projects: ['Data Analysis', 'ML Models', 'Automation Scripts'] },
+        { name: 'TensorFlow', level: 40, projects: ['Neural Networks', 'Deep Learning', 'Image Classification'] },
         { name: 'PyTorch', level: 55, projects: ['Research Projects', 'Computer Vision', 'NLP Models'] },
-        { name: 'Scikit-learn', level: 65, projects: ['Classification', 'Regression', 'Clustering'] },
-        { name: 'Pandas', level: 68, projects: ['Data Manipulation', 'Analysis', 'Preprocessing'] },
-        { name: 'NumPy', level: 67, projects: ['Numerical Computing', 'Array Operations', 'Mathematical Functions'] },
-        { name: 'Matplotlib/Seaborn', level: 62, projects: ['Data Visualization', 'Statistical Plots', 'Charts'] },
-        { name: 'Jupyter Notebooks', level: 70, projects: ['Data Exploration', 'Prototyping', 'Documentation'] },
-        { name: 'OpenCV', level: 52, projects: ['Computer Vision', 'Image Processing', 'Object Detection'] },
-        { name: 'Natural Language Processing', level: 58, projects: ['Text Analysis', 'Sentiment Analysis', 'Tokenization'] }
+        { name: 'Scikit-learn', level: 50, projects: ['Classification', 'Regression', 'Clustering'] },
+        { name: 'Pandas', level: 60, projects: ['Data Manipulation', 'Analysis', 'Preprocessing'] },
+        { name: 'NumPy', level: 60, projects: ['Numerical Computing', 'Array Operations', 'Mathematical Functions'] },
+        { name: 'Matplotlib/Seaborn', level: 53, projects: ['Data Visualization', 'Statistical Plots', 'Charts'] },
+        { name: 'Jupyter Notebooks', level: 67, projects: ['Data Exploration', 'Prototyping', 'Documentation'] },
+        { name: 'OpenCV', level: 65, projects: ['Computer Vision', 'Image Processing', 'Object Detection'] },
+        { name: 'Natural Language Processing', level: 55, projects: ['Text Analysis', 'Sentiment Analysis', 'Tokenization'] }
       ]
     },
     {
@@ -31,12 +31,12 @@ const Skills = () => {
       icon: Code,
       color: 'from-blue-500 to-cyan-500',
       skills: [
-        { name: 'React', level: 90, projects: ['Portfolio', 'E-commerce App', 'Dashboard'] },
-        { name: 'JavaScript', level: 95, projects: ['All Projects', 'API Integration', 'DOM Manipulation'] },
-        { name: 'TypeScript', level: 85, projects: ['Enterprise App', 'Type Safety', 'Interfaces'] },
+        { name: 'React', level: 75, projects: ['Portfolio', 'E-commerce App', 'Dashboard'] },
+        { name: 'JavaScript', level: 70, projects: ['All Projects', 'API Integration', 'DOM Manipulation'] },
+        { name: 'TypeScript', level: 65, projects: ['Enterprise App', 'Type Safety', 'Interfaces'] },
         { name: 'HTML/CSS', level: 95, projects: ['Responsive Design', 'CSS Grid', 'Flexbox'] },
         { name: 'Tailwind CSS', level: 90, projects: ['Portfolio', 'Component Library', 'Utility-first'] },
-        { name: 'Next.js', level: 80, projects: ['SSR Apps', 'API Routes', 'File-based Routing'] }
+        { name: 'Next.js', level: 75, projects: ['SSR Apps', 'API Routes', 'File-based Routing'] }
       ]
     },
     {
@@ -45,10 +45,10 @@ const Skills = () => {
       icon: Database,
       color: 'from-green-500 to-emerald-500',
       skills: [
-        { name: 'Node.js', level: 85, projects: ['REST APIs', 'Authentication', 'File Upload'] },
-        { name: 'Express.js', level: 80, projects: ['Middleware', 'Routing', 'Error Handling'] },
-        { name: 'Python', level: 75, projects: ['Data Analysis', 'Automation', 'Scripts'] },
-        { name: 'MongoDB', level: 70, projects: ['CRUD Operations', 'Aggregation', 'Indexing'] },
+        { name: 'Node.js', level: 75, projects: ['REST APIs', 'Authentication', 'File Upload'] },
+        { name: 'Express.js', level: 65, projects: ['Middleware', 'Routing', 'Error Handling'] },
+        { name: 'Python', level: 55, projects: ['Data Analysis', 'Automation', 'Scripts'] },
+        { name: 'MongoDB', level: 60, projects: ['CRUD Operations', 'Aggregation', 'Indexing'] },
         { name: 'PostgreSQL', level: 65, projects: ['Database Design', 'Queries', 'Relations'] }
       ]
     },
@@ -58,9 +58,9 @@ const Skills = () => {
       icon: Cloud,
       color: 'from-purple-500 to-pink-500',
       skills: [
-        { name: 'AWS', level: 70, projects: ['EC2', 'S3', 'Lambda'] },
+        { name: 'AWS', level: 60, projects: ['EC2', 'S3', 'Lambda'] },
         { name: 'Docker', level: 65, projects: ['Containerization', 'Multi-stage Builds'] },
-        { name: 'Git', level: 90, projects: ['Version Control', 'Collaboration', 'CI/CD'] },
+        { name: 'Git', level: 80, projects: ['Version Control', 'Collaboration', 'CI/CD'] },
         { name: 'Vercel', level: 85, projects: ['Deployment', 'Serverless Functions'] },
         { name: 'Netlify', level: 80, projects: ['Static Sites', 'Form Handling'] }
       ]
@@ -83,7 +83,7 @@ const Skills = () => {
       icon: Wrench,
       color: 'from-indigo-500 to-blue-500',
       skills: [
-        { name: 'VS Code', level: 95, projects: ['Extensions', 'Debugging', 'Productivity'] },
+        { name: 'VS Code', level: 85, projects: ['Extensions', 'Debugging', 'Productivity'] },
         { name: 'Chrome DevTools', level: 85, projects: ['Debugging', 'Performance', 'Network'] },
         { name: 'Postman', level: 80, projects: ['API Testing', 'Collections', 'Automation'] },
         { name: 'Framer Motion', level: 85, projects: ['Animations', 'Transitions', 'Gestures'] },
@@ -101,7 +101,7 @@ const Skills = () => {
       skills: [
         { name: 'Problem Solving', level: 90, projects: ['Algorithm Design', 'Debugging', 'Optimization'] },
         { name: 'Communication', level: 85, projects: ['Team Collaboration', 'Client Interaction', 'Documentation'] },
-        { name: 'Time Management', level: 80, projects: ['Project Planning', 'Deadlines', 'Prioritization'] },
+        { name: 'Time Management', level: 90, projects: ['Project Planning', 'Deadlines', 'Prioritization'] },
         { name: 'Learning', level: 95, projects: ['New Technologies', 'Best Practices', 'Industry Trends'] }
       ]
     }
