@@ -15,15 +15,19 @@ const educationData = [
       status: "current",
       highlights: [
         "Current GPA: 8.1 - Consistent academic performance",
-        "Programming Languages: C, C++,Java, Python, JavaScript",
+        "Programming Languages: C, C++, Java, Python, JavaScript",
+        "Coursework: DSA, DBMS, OS, CN, SE",
         "Web Technologies: React, React Native, Node.js, MongoDB",
+        "AI/ML: Python, TensorFlow, PyTorch Pandas, NumPy, Matplotlib,",
+        "Database: MongoDB, PostgreSQL",
+        "Tools: Git, VS Code, Postman, Figma",
         "Problem Solving: Active on LeetCode, Codeforces, CodeChef",
-        "Projects: CureAi (React Native health app), To-Do List app"
+        "Soft Skills: Problem Solving, Communication, Time Management",
       ],
       projects: [
         "CureAi - AI Health Guide",
         "To-Do List Mobile App",
-        "Mumbai Hackathon 2024"
+        "Green-Scan AI , Portfolio"
       ]
     },
       {

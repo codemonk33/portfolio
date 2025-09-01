@@ -16,19 +16,19 @@ const Experience = () => {
       duration: "jan 2024 - Feb 2024",
       type: "Internship",
       frontContent: {
-        description: "Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-        techStack: ["React", "Node.js", "MongoDB", "Express", "Git"],
-        achievements: ["Improved application performance by 25%", "Reduced bug reports by 40%"]
+        description: "Built and delivered multiple Python-based mini-projects during a software development internship, gaining hands-on experience.",
+        techStack: ["Python", "OOP", "Systematic Testing", "Debugging"],
+        achievements: ["Reduced errors by 25% through systematic testing", "Successfully delivered 4+ projects within deadlines"]
       },
       backContent: {
         responsibilities: [
-          "Developed responsive web interfaces using React and modern CSS",
-          "Implemented RESTful APIs with Node.js and Express",
-          "Collaborated with UI/UX designers to improve user experience",
-          "Participated in code reviews and agile development processes",
-          "Optimized database queries and improved application performance"
+          "Developed mini-projects including Sudoku Solver, Number Guessing Game, Contact Manager, and Temperature Converter using Python and OOP principles",
+          "Applied systematic testing methodologies to identify and fix bugs efficiently",
+          "Designed, tested, and deployed applications on time, ensuring quality and reliability",
+          "Enhanced problem-solving and debugging skills through iterative development",
+          "Followed best practices of the software development lifecycle to deliver maintainable code"
         ],
-        impact: "Successfully delivered 3 major features ahead of schedule, contributing to a 15% increase in user engagement."
+        impact: "Successfully completed all assigned projects within the internship duration, improving problem-solving efficiency and gaining practical exposure to real-world development workflows."
       }
     },
     {

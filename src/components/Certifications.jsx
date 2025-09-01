@@ -9,17 +9,17 @@ const Certifications = () => {
   const certificationsData = [
     {
       id: 1,
-      name: "AWS Certified Developer Associate",
-      issuer: "Amazon Web Services",
-      date: "December 2024",
+      name: "Python (Basic) Certificate",
+      issuer: "HackerRank",
+      date: "August 2025",
       location: "Online",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=400&fit=crop",
-      credentialId: "AWS-DEV-12345",
-      description: "Comprehensive certification covering AWS development services, best practices, and architectural patterns.",
-      skills: ["AWS Lambda", "DynamoDB", "API Gateway", "CloudFormation", "S3", "EC2"],
-      validity: "3 years",
-      verificationUrl: "https://aws.amazon.com/certification/certified-developer-associate/",
-      downloadUrl: "https://aws.amazon.com/certification/certified-developer-associate/"
+      image: "hacker_rank.jpg",
+      credentialId: "F213AA1C3B04",
+      description: "Comprehensive certification covering Python development services, best practices, and architectural patterns.",
+      skills: ["Lambda", "Maps", "OOPS", "Data Structures" , "Functions"],
+      validity: "Lifetime",
+      verificationUrl: "https://www.hackerrank.com/certificates/iframe/f213aa1c3b04",
+      downloadUrl: "https://www.hackerrank.com/certificates/iframe/f213aa1c3b04 "
     },
     {
       id: 2,
