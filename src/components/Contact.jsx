@@ -460,6 +460,7 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className={getInputClasses('name')}
                   placeholder="Enter your full name"
+                  autoComplete="name"
                 />
                 {errors.name && (
                   <motion.p
@@ -486,6 +487,7 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className={getInputClasses('email')}
                   placeholder="Enter your email address"
+                  autoComplete="email"
                 />
                 {errors.email && (
                   <motion.p
@@ -512,6 +514,7 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className={getInputClasses('subject')}
                   placeholder="What's this about?"
+                  autoComplete="off"
                 />
                 {errors.subject && (
                   <motion.p
@@ -539,6 +542,7 @@ const Contact = () => {
                   className={getInputClasses('message')}
                   placeholder="Tell me about your project or inquiry..."
                   maxLength={1000}
+                  autoComplete="off"
                 />
                 
                 {/* Character Counter */}
