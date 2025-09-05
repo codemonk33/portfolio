@@ -13,7 +13,7 @@ const Certifications = () => {
       issuer: "HackerRank",
       date: "August 2025",
       location: "Online",
-      image: "HackerRank.png",
+      image: "python.jpg",
       credentialId: "F213AA1C3B04",
       description: "Comprehensive certification covering Python development services, best practices, and architectural patterns.",
       skills: ["Lambda", "Maps", "OOPS", "Data Structures" , "Functions"],
@@ -27,7 +27,7 @@ const Certifications = () => {
       issuer: "HackerRank",
       date: "September 2025",
       location: "Online",
-      image: "HackerRank.png",
+      image: "SQL.jpg",
       credentialId: "5C6843939DCC",
       description: "Validates advanced SQL skills in querying, optimization, and data analysis, including expertise in joins, subqueries, window functions, performance tuning, and handling complex datasets.",
       skills: ["Advanced SQL Queries", "Joins & Subqueries", "Window Functions", "Query Optimization", "Data Aggregation & Analytics", "Database Management"],
@@ -37,60 +37,58 @@ const Certifications = () => {
     },
     {
       id: 3,
-      name: "Microsoft Certified: Azure Developer Associate",
-      issuer: "Microsoft",
-      date: "October 2024",
+      name: "Machine Learning",
+      issuer: "Udemy",
+      date: "September 2025",
       location: "Online",
-      image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
-      credentialId: "AZURE-DEV-11223",
-      description: "Professional certification for Azure cloud development and solution architecture.",
-      skills: ["Azure Functions", "Cosmos DB", "App Service", "Service Bus", "Blob Storage", "Azure DevOps"],
-      validity: "2 years",
-      verificationUrl: "https://www.microsoft.com/en-us/learning/certification/azure-developer-associate/",
-      downloadUrl: "https://www.microsoft.com/en-us/learning/certification/azure-developer-associate/"
+      image: "Machine-Learning.png",
+      credentialId: "UC-31bc540d-41ef-458b-af1b-a3dbd842df46",
+      description: "Comprehensive certification in Machine Learning, Artificial Intelligence, Python, and R, with hands-on training across real-world datasets and AI applications. The course also integrates ChatGPT-based tools for modern AI-driven problem solving.",
+      skills: ["Supervised Learning (Regression, Classification)",
+
+            "Unsupervised Learning (Clustering, Association Rules)",
+
+            "Deep Learning (ANN, CNN, RNN)",
+
+            "Natural Language Processing (NLP)",
+
+            "Reinforcement Learning",
+
+            "Model Selection & Evaluation (Cross-Validation, Bias-Variance)",
+
+            "Python for Machine Learning",
+            "AI & ChatGPT Integration"],
+      validity: "Lifetime",
+      verificationUrl: "https://udemy-certificate.s3.amazonaws.com/image/UC-31bc540d-41ef-458b-a1fb-a3dbd842df46.jpg",
+      downloadUrl: "https://udemy-certificate.s3.amazonaws.com/image/UC-31bc540d-41ef-458b-a1fb-a3dbd842df46.jpg"
     },
     {
       id: 4,
-      name: "Certified Scrum Master (CSM)",
-      issuer: "Scrum Alliance",
-      date: "September 2024",
-      location: "Mumbai, India",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop",
-      credentialId: "CSM-45678",
-      description: "Professional certification demonstrating expertise in Scrum methodology and agile project management.",
-      skills: ["Scrum Framework", "Agile Principles", "Team Facilitation", "Sprint Planning", "Retrospectives"],
-      validity: "2 years",
-      verificationUrl: "https://www.scrumalliance.org/certifications/certified-scrum-master",
-      downloadUrl: "https://www.scrumalliance.org/certifications/certified-scrum-master"
-    },
-    {
-      id: 5,
-      name: "MongoDB Certified Developer",
-      issuer: "MongoDB University",
-      date: "August 2024",
+      name: "Data Structure and Algorithms",
+      issuer: "Udemy",
+      date: "Ongoing",
       location: "Online",
-      image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=400&fit=crop",
-      credentialId: "MONGODB-DEV-33445",
-      description: "Specialized certification in MongoDB database development and administration.",
-      skills: ["MongoDB Atlas", "Aggregation Pipeline", "Indexing", "Sharding", "Replication", "Data Modeling"],
-      validity: "3 years",
-      verificationUrl: "https://university.mongodb.com/course_completion",
-      downloadUrl: "https://university.mongodb.com/course_completion"
+      image: "DSA.jpg",
+      credentialId: "......",
+      description: "This certification in Data Structures and Algorithms with C and C++ validates expertise in recursion, data structures, sorting, searching, and complexity analysis, showcasing analytical and optimization skills essential for efficient software development and system design.",
+      skills: ["Implementation of Data Structures in C++",
+
+            "Recursive Algorithm Design",
+
+            "Core Data Structures",
+
+            "Sorting & Searching Techniques",
+
+            "Advanced Structures",
+
+            "Algorithm Complexity Analysis",
+
+            "Analytical Thinking & Problem-Solving"],
+      validity: "Lifetime",
+      verificationUrl: "",
+      downloadUrl: ""
     },
-    {
-      id: 6,
-      name: "React Developer Certification",
-      issuer: "Meta",
-      date: "July 2024",
-      location: "Online",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=400&fit=crop",
-      credentialId: "REACT-DEV-55667",
-      description: "Official certification demonstrating advanced React development skills and best practices.",
-      skills: ["React Hooks", "Context API", "Performance Optimization", "Testing", "State Management", "Component Design"],
-      validity: "2 years",
-      verificationUrl: "https://www.meta.com/certification",
-      downloadUrl: "https://www.meta.com/certification"
-    }
+   
   ]
 
   const openCert = (cert) => {
