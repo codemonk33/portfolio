@@ -41,7 +41,7 @@ const Projects = () => {
       images: [
         "/Task Management  App.jpg"
       ],
-      techStack: ["Next.js", "Firebase", "Tailwind CSS", "Framer Motion", "TypeScript"],
+      techStack: ["Next.js", "Firebase", "React Native", "Framer Motion", "TypeScript"],
       features: [
         "Real-time task updates",
         "Team collaboration tools",
@@ -82,19 +82,24 @@ const Projects = () => {
       id: 5,
       title: "Cure-AI a Health App",
       description: "A content management system for blogs with markdown support, user management, and SEO optimization.",
-      longDescription: "A full-featured blog platform built with Next.js and Prisma, featuring markdown support, user authentication, content management, and advanced SEO features. Includes an admin panel for content creators.",
+      longDescription: "An elderly-friendly React Native app that simplifies health care with 3D body-based symptom selection, AI-powered health analysis, emergency assistance, and daily wellness tips, featuring large text, high contrast, and accessibility-focused design for seniors’ safety and independence.",
       image: "/Health App.jpg",
       images: [
         "/Health App.jpg"
       ],
-      techStack: ["Next.js", "Prisma", "PostgreSQL", "Markdown", "Tailwind CSS"],
+      techStack: ["React Native (Expo CLI)","sTypeScript", "Expo Router", "React Three Fiber", "Expo Speech/AV", "React Native Vector Icons", "React Native SVG"],
       features: [
-        "Markdown editor support",
-        "User authentication",
-        "Content management system",
-        "SEO optimization",
-        "Comment system",
-        "Admin dashboard"
+        "Interactive 3D body model for symptoms",
+        "Symptom image grid with clear details",
+        "AI-driven analysis with risk indicators",
+
+        "One-tap emergency contact access",
+
+        "Daily wellness and lifestyle tips",
+
+        "Text-to-speech guidance for seniors",
+
+        "Accessibility-focused, elderly-friendly design"
       ],
       github: "https://github.com/codemonk33/health-app",
       live: "https://blog.omtiwari.dev",
@@ -104,20 +109,25 @@ const Projects = () => {
     {
       id: 4,
       title: "Green-Scan AI",
-      description: "A weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      longDescription: "This weather dashboard provides comprehensive weather information with interactive maps, detailed forecasts, and historical data analysis. Users can save favorite locations and receive weather alerts.",
+      description: "AI-powered platform analyzing satellite imagery to detect deforestation, track land-use changes, and deliver actionable insights for sustainability and climate research.",
+      longDescription: " GreenScan (EcoSense) is an AI-powered solution that uses machine learning, deep learning, and computer vision to analyze satellite imagery. By processing multispectral and geospatial data, it detects deforestation, monitors land-use changes, and reveals ecological patterns, delivering actionable insights for sustainability, climate research, and environmental conservation",
       image: "/Green-scan AI.jpg",
       images: [
         "/Green-scan AI.jpg"
       ],
-      techStack: ["React", "OpenWeather API", "Chart.js", "Leaflet Maps", "CSS Modules"],
+      techStack: ["React Native (Expo)", "Mapbox", "FastAPI", "TensorFlow", "PostgresSQL", "Google Earth Engine", "Firebase"],
       features: [
-        "Location-based weather data",
-        "Interactive weather maps",
-        "7-day forecast",
-        "Weather alerts & notifications",
-        "Historical data charts",
-        "Favorite locations"
+        "Analyzes satellite imagery using multispectral and geospatial data.",
+
+        "Detects deforestation and forest cover loss with precision.",
+
+        "Monitors land-use changes across urban, agricultural, water, and forest areas.",
+
+        "Tracks environmental shifts through historical and real-time comparisons",
+
+        "Delivers interactive maps and exportable reports for actionable insights",
+
+        "Sends real-time alerts on critical environmental changes"
       ],
       github: "https://github.com/codemonk33/GreenScan-AI-Based-Deforestation-and-Land-Use-Monitoring",
       live: "https://weather.omtiwari.dev",

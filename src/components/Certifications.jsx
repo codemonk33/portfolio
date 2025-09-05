@@ -21,19 +21,19 @@ const Certifications = () => {
       verificationUrl: "https://www.hackerrank.com/certificates/iframe/f213aa1c3b04",
       downloadUrl: "https://www.hackerrank.com/certificates/iframe/f213aa1c3b04 "
     },
-    {
+    {   
       id: 2,
-      name: "Google Cloud Professional Developer",
-      issuer: "Google Cloud",
-      date: "November 2024",
+      name: "SQL (Advanced) Certificate",
+      issuer: "HackerRank",
+      date: "September 2025",
       location: "Online",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
-      credentialId: "GCP-DEV-67890",
-      description: "Advanced certification demonstrating expertise in Google Cloud Platform development and deployment.",
-      skills: ["Cloud Functions", "Cloud Run", "BigQuery", "Pub/Sub", "Cloud Storage", "Kubernetes"],
-      validity: "2 years",
-      verificationUrl: "https://cloud.google.com/certification/cloud-developer",
-      downloadUrl: "https://cloud.google.com/certification/cloud-developer"
+      image: "SQL(Advanced).png",
+      credentialId: "5C6843939DCC",
+      description: "Validates advanced SQL skills in querying, optimization, and data analysis, including expertise in joins, subqueries, window functions, performance tuning, and handling complex datasets.",
+      skills: ["Advanced SQL Queries", "Joins & Subqueries", "Window Functions", "Query Optimization", "Data Aggregation & Analytics", "Database Management"],
+      validity: "Lifetime",
+      verificationUrl: "https://www.hackerrank.com/certificates/iframe/5c6843939dcc",
+      downloadUrl: "https://www.hackerrank.com/certificates/iframe/5c6843939dcc"
     },
     {
       id: 3,
@@ -382,10 +382,10 @@ const Certifications = () => {
               to staying current with industry best practices and expanding my technical expertise.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-300">
-              <span>• AWS Certified Developer</span>
-              <span>• Google Cloud Professional</span>
-              <span>• Azure Developer Associate</span>
-              <span>• Certified Scrum Master</span>
+              <span>• DevOps</span>
+              <span>• Mobile Development</span>
+              <span>• Cloud Computing</span>
+              <span>• AI/ML</span> 
             </div>
           </div>
         </motion.div>
