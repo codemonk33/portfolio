@@ -42,6 +42,20 @@ const Header = () => {
     }
   }
 
+  // Handle mobile menu scroll lock
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -96,7 +110,7 @@ const Header = () => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+            className="md:hidden p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Toggle mobile menu"
           >
             <AnimatePresence mode="wait">
@@ -133,24 +147,30 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+              className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 shadow-lg"
             >
-              <div className="py-4 space-y-2">
-                                 {navItems.map((item, index) => (
-                   <motion.button
-                     key={item.name}
-                     onClick={() => scrollToSection(item.href)}
-                     initial={{ x: -20, opacity: 0 }}
-                     animate={{ x: 0, opacity: 1 }}
-                     transition={{ delay: index * 0.1 }}
-                     whileHover={{ scale: 1.02 }}
-                     whileTap={{ scale: 0.98 }}
-                     className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 rounded-lg mx-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-                   >
-                     {item.name}
-                   </motion.button>
-                 ))}
+              <div className="py-2 px-2 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center w-full text-left px-4 py-4 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 rounded-xl touch-manipulation font-medium text-base active:bg-primary-100 dark:active:bg-primary-900/30"
+                  >
+                    <span className="w-2 h-2 bg-primary-500 rounded-full mr-3 opacity-60"></span>
+                    {item.name}
+                  </motion.button>
+                ))}
               </div>
+              
+              {/* Close area - tap outside to close */}
+              <div 
+                className="h-4 w-full"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
             </motion.div>
           )}
         </AnimatePresence>

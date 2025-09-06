@@ -13,14 +13,11 @@ const Skills = () => {
       icon: Bot,
       color: 'from-violet-500 to-purple-600',
       skills: [
-        { name: 'Python', level: 55, projects: ['Data Analysis', 'ML Models', 'Automation Scripts'] },
-        { name: 'TensorFlow', level: 40, projects: ['Neural Networks', 'Deep Learning', 'Image Classification'] },
         { name: 'PyTorch', level: 55, projects: ['Research Projects', 'Computer Vision', 'NLP Models'] },
         { name: 'Scikit-learn', level: 50, projects: ['Classification', 'Regression', 'Clustering'] },
         { name: 'Pandas', level: 60, projects: ['Data Manipulation', 'Analysis', 'Preprocessing'] },
         { name: 'NumPy', level: 60, projects: ['Numerical Computing', 'Array Operations', 'Mathematical Functions'] },
         { name: 'Matplotlib/Seaborn', level: 53, projects: ['Data Visualization', 'Statistical Plots', 'Charts'] },
-        { name: 'Jupyter Notebooks', level: 67, projects: ['Data Exploration', 'Prototyping', 'Documentation'] },
         { name: 'OpenCV', level: 65, projects: ['Computer Vision', 'Image Processing', 'Object Detection'] },
         { name: 'Natural Language Processing', level: 55, projects: ['Text Analysis', 'Sentiment Analysis', 'Tokenization'] }
       ]
