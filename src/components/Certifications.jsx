@@ -1,10 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Award, ExternalLink, X, Download, Calendar, MapPin } from 'lucide-react'
 import { fadeUpVariants, staggerContainerVariants, hoverVariants, scaleInVariants } from '../utils/motion'
+import { isMobile, getMobileAnimationConfig } from '../utils/mobile'
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null)
+  const [isMobileDevice, setIsMobileDevice] = useState(false)
+
+  useEffect(() => {
+    setIsMobileDevice(isMobile())
+    
+    const handleResize = () => {
+      setIsMobileDevice(isMobile())
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const certificationsData = [
     {
@@ -138,7 +151,7 @@ const Certifications = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {certificationsData.map((cert, index) => (
             <motion.div
@@ -146,72 +159,97 @@ const Certifications = () => {
               variants={fadeUpVariants}
               className="group"
             >
-                              <motion.div
-                  variants={hoverVariants}
-                  whileHover="hover"
-                  className="card overflow-hidden cursor-pointer h-full"
-                  onClick={() => openCert(cert)}
-                >
+              <motion.div
+                variants={isMobileDevice ? {} : hoverVariants}
+                whileHover={isMobileDevice ? {} : "hover"}
+                className="card overflow-hidden cursor-pointer h-full touch-manipulation"
+                onClick={() => openCert(cert)}
+                onTouchEnd={(e) => {
+                  // Improve touch responsiveness
+                  e.stopPropagation()
+                }}
+              >
                 {/* Certificate Image */}
-                <div className="relative overflow-hidden h-48">
+                <div className={`relative overflow-hidden ${isMobileDevice ? 'h-48 sm:h-52' : 'h-48'}`}>
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className={`w-full h-full object-cover transition-transform duration-300 ${
+                      isMobileDevice ? '' : 'group-hover:scale-110'
+                    }`}
+                    loading="lazy"
+                    style={{
+                      aspectRatio: '16/9',
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 ${
+                    isMobileDevice ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`} />
                   
                   {/* View Details Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                    isMobileDevice ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}>
                     <div className="text-center text-white">
-                      <Award size={32} className="mx-auto mb-2" />
-                      <span className="text-sm font-medium">View Details</span>
+                      <Award size={isMobileDevice ? 24 : 32} className="mx-auto mb-2" />
+                      <span className={`font-medium ${isMobileDevice ? 'text-xs' : 'text-sm'}`}>View Details</span>
                     </div>
                   </div>
 
                   {/* Issuer Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200">
+                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4">
+                    <span className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-medium bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200">
                       {cert.issuer}
                     </span>
                   </div>
                 </div>
 
                 {/* Certificate Content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
+                <div className={`flex-1 flex flex-col ${isMobileDevice ? 'p-3 sm:p-4' : 'p-6'}`}>
+                  <h3 className={`font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-200 leading-tight ${
+                    isMobileDevice ? 'text-base sm:text-lg group-hover:text-primary-600 dark:group-hover:text-primary-400' : 'text-xl group-hover:text-primary-600 dark:group-hover:text-primary-400'
+                  }`}>
                     {cert.name}
                   </h3>
                   
-                  <div className="space-y-2 mb-4 text-sm text-gray-600 dark:text-gray-300">
+                  <div className={`space-y-2 mb-4 text-gray-600 dark:text-gray-300 ${
+                    isMobileDevice ? 'text-xs' : 'text-sm'
+                  }`}>
                     <div className="flex items-center">
-                      <Calendar size={14} className="mr-2" />
-                      {cert.date}
+                      <Calendar size={isMobileDevice ? 12 : 14} className="mr-2 flex-shrink-0" />
+                      <span className="truncate">{cert.date}</span>
                     </div>
                     <div className="flex items-center">
-                      <MapPin size={14} className="mr-2" />
-                      {cert.location}
+                      <MapPin size={isMobileDevice ? 12 : 14} className="mr-2 flex-shrink-0" />
+                      <span className="truncate">{cert.location}</span>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-1 leading-relaxed text-sm">
+                  <p className={`text-gray-600 dark:text-gray-300 mb-3 flex-1 leading-relaxed ${
+                    isMobileDevice ? 'text-xs line-clamp-2 sm:line-clamp-3' : 'text-sm'
+                  }`}>
                     {cert.description}
                   </p>
 
                   {/* Skills */}
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {cert.skills.slice(0, 3).map((skill, idx) => (
+                  <div className="mb-3">
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
+                      {cert.skills.slice(0, isMobileDevice ? 2 : 3).map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs rounded"
+                          className={`px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded text-xs leading-tight ${
+                            isMobileDevice ? 'max-w-[120px] truncate' : ''
+                          }`}
+                          title={skill}
                         >
                           {skill}
                         </span>
                       ))}
-                      {cert.skills.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded">
-                          +{cert.skills.length - 3} more
+                      {cert.skills.length > (isMobileDevice ? 2 : 3) && (
+                        <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs">
+                          +{cert.skills.length - (isMobileDevice ? 2 : 3)} more
                         </span>
                       )}
                     </div>
@@ -219,7 +257,9 @@ const Certifications = () => {
 
                   {/* Validity */}
                   <div className="mt-auto">
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                    <span className={`text-gray-500 dark:text-gray-400 ${
+                      isMobileDevice ? 'text-xs' : 'text-xs'
+                    }`}>
                       Valid until: {cert.validity}
                     </span>
                   </div>
@@ -232,82 +272,120 @@ const Certifications = () => {
         {/* Certificate Modal */}
         <AnimatePresence>
           {selectedCert && (
-                         <motion.div
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
-               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-               onClick={closeCert}
-               onTouchStart={closeCert}
-             >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center ${
+                isMobileDevice ? 'p-2' : 'p-4'
+              }`}
+              onClick={closeCert}
+              onTouchStart={(e) => {
+                // Only close on backdrop touch, not content touch
+                if (e.target === e.currentTarget) {
+                  closeCert()
+                }
+              }}
+            >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                transition={getMobileAnimationConfig()}
+                className={`bg-white dark:bg-gray-800 rounded-2xl w-full overflow-y-auto ${
+                  isMobileDevice 
+                    ? 'max-w-full max-h-[95vh] rounded-lg' 
+                    : 'max-w-4xl max-h-[90vh]'
+                }`}
                 onClick={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
               >
                 {/* Modal Header */}
-                <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div className={`border-b border-gray-200 dark:border-gray-700 ${
+                  isMobileDevice ? 'p-4' : 'p-6'
+                }`}>
                   <div className="flex items-center justify-between">
-                    <div>
-                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <div className="flex-1 min-w-0">
+                      <h2 className={`font-bold text-gray-900 dark:text-white truncate ${
+                        isMobileDevice ? 'text-lg' : 'text-2xl'
+                      }`}>
                         {selectedCert.name}
                       </h2>
-                      <p className="text-gray-600 dark:text-gray-300 mt-1">
+                      <p className={`text-gray-600 dark:text-gray-300 mt-1 truncate ${
+                        isMobileDevice ? 'text-sm' : 'text-base'
+                      }`}>
                         {selectedCert.issuer} • {selectedCert.date}
                       </p>
                     </div>
-                                         <motion.button
-                       whileHover={{ scale: 1.1 }}
-                       whileTap={{ scale: 0.9 }}
-                       onClick={(e) => {
-                         e.stopPropagation();
-                         closeCert();
-                       }}
-                       onTouchStart={(e) => e.stopPropagation()}
-                       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-                     >
-                       <X size={24} />
-                     </motion.button>
+                    <motion.button
+                      whileHover={isMobileDevice ? {} : { scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        closeCert();
+                      }}
+                      onTouchStart={(e) => e.stopPropagation()}
+                      className={`rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex-shrink-0 ${
+                        isMobileDevice ? 'p-2' : 'p-2'
+                      }`}
+                    >
+                      <X size={isMobileDevice ? 20 : 24} />
+                    </motion.button>
                   </div>
                 </div>
 
                 {/* Modal Content */}
-                <div className="p-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className={isMobileDevice ? 'p-4' : 'p-6'}>
+                  <div className={`grid gap-6 ${
+                    isMobileDevice ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'
+                  }`}>
                     {/* Certificate Image */}
                     <div>
                       <div className="relative rounded-lg overflow-hidden">
                         <img
                           src={selectedCert.image}
                           alt={selectedCert.name}
-                          className="w-full h-80 object-cover"
+                          className={`w-full object-cover ${
+                            isMobileDevice ? 'h-52 sm:h-64' : 'h-80'
+                          }`}
+                          loading="lazy"
+                          style={{
+                            aspectRatio: '16/9',
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       </div>
                     </div>
 
                     {/* Certificate Details */}
-                    <div className="space-y-6">
+                    <div className={`space-y-4 ${isMobileDevice ? '' : 'space-y-6'}`}>
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        <h3 className={`font-semibold text-gray-900 dark:text-white mb-3 ${
+                          isMobileDevice ? 'text-base' : 'text-lg'
+                        }`}>
                           About This Certification
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p className={`text-gray-600 dark:text-gray-300 leading-relaxed ${
+                          isMobileDevice ? 'text-sm' : 'text-base'
+                        }`}>
                           {selectedCert.description}
                         </p>
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        <h3 className={`font-semibold text-gray-900 dark:text-white mb-3 ${
+                          isMobileDevice ? 'text-base' : 'text-lg'
+                        }`}>
                           Credential Details
                         </h3>
-                        <div className="space-y-2 text-sm">
+                        <div className={`space-y-2 ${
+                          isMobileDevice ? 'text-xs' : 'text-sm'
+                        }`}>
                           <div className="flex justify-between">
                             <span className="text-gray-600 dark:text-gray-400">Credential ID:</span>
-                            <span className="font-medium text-gray-900 dark:text-white">{selectedCert.credentialId}</span>
+                            <span className="font-medium text-gray-900 dark:text-white truncate ml-2">{selectedCert.credentialId}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-600 dark:text-gray-400">Issue Date:</span>
@@ -325,14 +403,20 @@ const Certifications = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        <h3 className={`font-semibold text-gray-900 dark:text-white mb-3 ${
+                          isMobileDevice ? 'text-base' : 'text-lg'
+                        }`}>
                           Skills Covered
                         </h3>
-                        <div className="flex flex-wrap gap-2">
+                        <div className={`flex flex-wrap gap-1 sm:gap-2 ${
+                          isMobileDevice ? 'max-h-32 overflow-y-auto' : ''
+                        }`}>
                           {selectedCert.skills.map((skill, index) => (
                             <span
                               key={index}
-                              className="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full"
+                              className={`px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full ${
+                                isMobileDevice ? 'text-xs' : 'text-sm'
+                              }`}
                             >
                               {skill}
                             </span>
@@ -341,33 +425,37 @@ const Certifications = () => {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="space-y-3 pt-4">
+                      <div className={`pt-4 ${isMobileDevice ? 'space-y-2' : 'space-y-3'}`}>
                         <motion.a
-                          whileHover={{ scale: 1.02 }}
+                          whileHover={isMobileDevice ? {} : { scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           href={selectedCert.verificationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center w-full btn-secondary"
+                          className={`flex items-center justify-center w-full btn-secondary touch-manipulation ${
+                            isMobileDevice ? 'btn-mobile-full' : ''
+                          }`}
                           onClick={(e) => e.stopPropagation()}
                           onTouchStart={(e) => e.stopPropagation()}
                         >
-                          <ExternalLink size={20} className="mr-2" />
-                          Verify Credential
+                          <ExternalLink size={isMobileDevice ? 16 : 20} className="mr-2" />
+                          <span className={isMobileDevice ? 'text-sm' : ''}>Verify Credential</span>
                         </motion.a>
                         
                         <motion.a
-                          whileHover={{ scale: 1.02 }}
+                          whileHover={isMobileDevice ? {} : { scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           href={selectedCert.downloadUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center w-full btn-primary"
+                          className={`flex items-center justify-center w-full btn-primary touch-manipulation ${
+                            isMobileDevice ? 'btn-mobile-full' : ''
+                          }`}
                           onClick={(e) => e.stopPropagation()}
                           onTouchStart={(e) => e.stopPropagation()}
                         >
-                          <ExternalLink size={20} className="mr-2" />
-                          Preview Certificate
+                          <ExternalLink size={isMobileDevice ? 16 : 20} className="mr-2" />
+                          <span className={isMobileDevice ? 'text-sm' : ''}>Preview Certificate</span>
                         </motion.a>
                       </div>
                     </div>
