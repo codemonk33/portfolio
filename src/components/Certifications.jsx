@@ -88,6 +88,21 @@ const Certifications = () => {
       verificationUrl: "",
       downloadUrl: ""
     },
+
+    {
+      id: 5,
+      name: "Mobile Development with React Native",
+      issuer: "Udemy",
+      date: "Ongoing",
+      location: "Online",
+      image: "React-Native.png",
+      credentialId: ".....",
+      description: "Specialized certification in React Native development, with hands-on training in building mobile applications using React Native and JavaScript.",
+      skills: ["React Native & React Hooks","JavaScript (ES6+) & TypeScript","Redux & Context API","REST APIs, GraphQL, Firebase","Push notifications & offline storage","App deployment"],
+      validity: "Lifetime",
+      verificationUrl: "",
+      downloadUrl: ""
+    },
    
   ]
 
