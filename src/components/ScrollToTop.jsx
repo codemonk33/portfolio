@@ -76,11 +76,9 @@ const ScrollToTop = () => {
               fill="none"
               strokeLinecap="round"
               className="text-primary-500"
-              initial={{ strokeDasharray: 0, strokeDashoffset: 0 }}
-              animate={{ 
-                strokeDasharray: `${2 * Math.PI * 20}`,
-                strokeDashoffset: `${2 * Math.PI * 20 * (1 - scrollProgress / 100)}`
-              }}
+              pathLength={1}
+              style={{ strokeDasharray: 1 }}
+              animate={{ strokeDashoffset: 1 - (scrollProgress / 100) }}
               transition={{ duration: 0.3 }}
             />
           </svg>

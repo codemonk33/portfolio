@@ -92,7 +92,7 @@ const Hero = () => {
   ]
 
   return (
-    <section id="home" className="relative min-h-screen-mobile flex items-center justify-center pt-14 sm:pt-16 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-x-clip w-full max-w-full">
+    <section id="home" className="relative min-h-screen-mobile flex items-center justify-center pt-14 sm:pt-16 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-x-clip w-full max-w-full scroll-mt-header">
       <div className="container-custom">
         <motion.div
           variants={staggerContainerVariants}

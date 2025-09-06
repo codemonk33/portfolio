@@ -7,6 +7,7 @@ import { isMobile, getMobileAnimationConfig } from '../utils/mobile'
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null)
   const [isMobileDevice, setIsMobileDevice] = useState(false)
+  const [scrollPosition, setScrollPosition] = useState(0)
 
   useEffect(() => {
     setIsMobileDevice(isMobile())
@@ -18,6 +19,30 @@ const Certifications = () => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  // Cleanup: restore scroll when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      document.body.style.overflow = ''
+    }
+  }, [])
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && selectedCert) {
+        closeCert()
+      }
+    }
+    
+    if (selectedCert) {
+      document.addEventListener('keydown', handleEscape)
+      return () => document.removeEventListener('keydown', handleEscape)
+    }
+  }, [selectedCert])
 
   const certificationsData = [
     {
@@ -120,15 +145,38 @@ const Certifications = () => {
   ]
 
   const openCert = (cert) => {
+    // Store current scroll position
+    const currentScrollY = window.scrollY
+    setScrollPosition(currentScrollY)
+    
     setSelectedCert(cert)
+    
+    // Prevent body scroll - preserve position
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${currentScrollY}px`
+    document.body.style.width = '100%'
+    document.body.style.overflow = 'hidden'
   }
 
   const closeCert = () => {
     setSelectedCert(null)
+    
+    // Restore body scroll and position
+    document.body.style.position = ''
+    document.body.style.top = ''
+    document.body.style.width = ''
+    document.body.style.overflow = ''
+    
+    // Restore scroll position instantly (no smooth scrolling)
+    window.scrollTo({
+      top: scrollPosition,
+      left: 0,
+      behavior: 'instant'
+    })
   }
 
   return (
-    <section id="certifications" className="section bg-white dark:bg-gray-800">
+    <section id="certifications" className="section bg-white dark:bg-gray-800 scroll-mt-header">
       <div className="container-custom">
         <motion.div
           variants={staggerContainerVariants}
@@ -170,7 +218,7 @@ const Certifications = () => {
                 }}
               >
                 {/* Certificate Image */}
-                <div className={`relative overflow-hidden ${isMobileDevice ? 'h-48 sm:h-52' : 'h-48'}`}>
+                <div className={`relative overflow-hidden bg-gray-100 dark:bg-gray-700 ${isMobileDevice ? 'h-48 sm:h-52' : 'h-48'}`}>
                   <img
                     src={cert.image}
                     alt={cert.name}
@@ -178,10 +226,9 @@ const Certifications = () => {
                       isMobileDevice ? '' : 'group-hover:scale-110'
                     }`}
                     loading="lazy"
-                    style={{
-                      aspectRatio: '16/9',
-                      objectFit: 'cover',
-                      objectPosition: 'center'
+                    onError={(e) => {
+                      e.target.style.objectFit = 'contain'
+                      e.target.style.backgroundColor = '#f3f4f6'
                     }}
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 ${
@@ -341,21 +388,21 @@ const Certifications = () => {
                   }`}>
                     {/* Certificate Image */}
                     <div>
-                      <div className="relative rounded-lg overflow-hidden">
-                        <img
-                          src={selectedCert.image}
-                          alt={selectedCert.name}
-                          className={`w-full object-cover ${
-                            isMobileDevice ? 'h-52 sm:h-64' : 'h-80'
-                          }`}
-                          loading="lazy"
-                          style={{
-                            aspectRatio: '16/9',
-                            objectFit: 'cover',
-                            objectPosition: 'center'
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      <div className="relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+                        <div className={`relative w-full ${
+                          isMobileDevice ? 'h-52 sm:h-64' : 'h-80'
+                        }`}>
+                          <img
+                            src={selectedCert.image}
+                            alt={selectedCert.name}
+                            className="absolute inset-0 w-full h-full object-contain"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.target.style.objectFit = 'cover'
+                            }}
+                          />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                       </div>
                     </div>
 

@@ -50,7 +50,7 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
+    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 scroll-mt-header">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div

@@ -335,7 +335,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="section bg-gray-50 dark:bg-gray-900">
+    <section id="contact" className="section bg-gray-50 dark:bg-gray-900 scroll-mt-header">
       <div className="container-custom">
         <motion.div
           variants={staggerContainerVariants}

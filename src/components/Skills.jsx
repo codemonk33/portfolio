@@ -110,7 +110,7 @@ const Skills = () => {
   const currentCategory = skillCategories.find(cat => cat.id === activeCategory)
 
   return (
-    <section id="skills" className="section bg-white dark:bg-gray-800">
+    <section id="skills" className="section bg-white dark:bg-gray-800 scroll-mt-header">
       <div className="container-custom">
         <motion.div
           variants={staggerContainerVariants}
@@ -238,11 +238,10 @@ const Skills = () => {
                     fill="transparent"
                     strokeLinecap="round"
                     className="text-primary-500"
-                    initial={{ strokeDasharray: 0, strokeDashoffset: 0 }}
-                    animate={{ 
-                      strokeDasharray: `${2 * Math.PI * 56}`,
-                      strokeDashoffset: `${2 * Math.PI * 56 * (1 - 0.85)}`
-                    }}
+                    pathLength={1}
+                    style={{ strokeDasharray: 1 }}
+                    initial={{ strokeDashoffset: 1 }}
+                    animate={{ strokeDashoffset: 1 - 0.85 }}
                     transition={{ duration: 2, delay: 0.5 }}
                   />
                 </svg>

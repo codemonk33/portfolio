@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Github, Eye, X, ChevronLeft, ChevronRight, Play } from 'lucide-react'
 import { fadeUpVariants, staggerContainerVariants, hoverVariants, scaleInVariants } from '../utils/motion'
@@ -7,6 +7,31 @@ import { trackProjectView, trackSocialClick } from '../utils/analytics'
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [scrollPosition, setScrollPosition] = useState(0)
+
+  // Cleanup: restore scroll when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      document.body.style.overflow = ''
+    }
+  }, [])
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && selectedProject) {
+        closeProject()
+      }
+    }
+    
+    if (selectedProject) {
+      document.addEventListener('keydown', handleEscape)
+      return () => document.removeEventListener('keydown', handleEscape)
+    }
+  }, [selectedProject])
 
   const projectsData = [
     {
@@ -176,14 +201,37 @@ const Projects = () => {
   }
 
   const openProject = (project) => {
+    // Store current scroll position
+    const currentScrollY = window.scrollY
+    setScrollPosition(currentScrollY)
+    
     trackProjectView(project.title, project.category)
     setSelectedProject(project)
     setCurrentImageIndex(0)
+    
+    // Prevent body scroll - preserve position
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${currentScrollY}px`
+    document.body.style.width = '100%'
+    document.body.style.overflow = 'hidden'
   }
 
   const closeProject = () => {
     setSelectedProject(null)
     setCurrentImageIndex(0)
+    
+    // Restore body scroll and position
+    document.body.style.position = ''
+    document.body.style.top = ''
+    document.body.style.width = ''
+    document.body.style.overflow = ''
+    
+    // Restore scroll position instantly (no smooth scrolling)
+    window.scrollTo({
+      top: scrollPosition,
+      left: 0,
+      behavior: 'instant'
+    })
   }
 
   // Handle collaboration button
@@ -201,7 +249,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 scroll-mt-header">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainerVariants}
