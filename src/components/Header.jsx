@@ -147,7 +147,11 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 shadow-lg"
+              className="absolute top-full left-0 right-0 z-50 md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-xl rounded-3xl mx-4 mt-2 border border-gray-200 dark:border-gray-700"
+              style={{
+                backgroundColor: isDark ? 'rgb(17 24 39)' : 'rgb(255 255 255)',
+                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+              }}
             >
               <div className="py-2 px-2 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
                 {navItems.map((item, index) => (
@@ -158,7 +162,7 @@ const Header = () => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: index * 0.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center w-full text-left px-4 py-4 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 rounded-xl touch-manipulation font-medium text-base active:bg-primary-100 dark:active:bg-primary-900/30"
+                     className="flex items-center w-full text-left px-4 py-4 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 rounded-2xl touch-manipulation font-medium text-base active:bg-primary-100 dark:active:bg-primary-900/30 mx-2"
                   >
                     <span className="w-2 h-2 bg-primary-500 rounded-full mr-3 opacity-60"></span>
                     {item.name}
