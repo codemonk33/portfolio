@@ -33,6 +33,33 @@ const Projects = () => {
     }
   }, [selectedProject])
 
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopState = (e) => {
+      if (selectedProject && (!e.state || !e.state.modalOpen)) {
+        // Back button was pressed, close modal without manipulating history
+        setSelectedProject(null)
+        setCurrentImageIndex(0)
+        
+        // Restore body scroll and position
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        document.body.style.overflow = ''
+        
+        // Restore scroll position instantly
+        window.scrollTo({
+          top: scrollPosition,
+          left: 0,
+          behavior: 'instant'
+        })
+      }
+    }
+    
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [selectedProject, scrollPosition])
+
   const projectsData = [
     {
       id: 3,
@@ -209,6 +236,10 @@ const Projects = () => {
     setSelectedProject(project)
     setCurrentImageIndex(0)
     
+    // Add to browser history for back button support
+    const state = { modalOpen: true, projectId: project.id }
+    window.history.pushState(state, '', `#project-${project.id}`)
+    
     // Prevent body scroll - preserve position
     document.body.style.position = 'fixed'
     document.body.style.top = `-${currentScrollY}px`
@@ -219,6 +250,12 @@ const Projects = () => {
   const closeProject = () => {
     setSelectedProject(null)
     setCurrentImageIndex(0)
+    
+    // Remove from browser history if we added it
+    if (window.location.hash.startsWith('#project-')) {
+      // Replace current state to avoid adding extra history entries
+      window.history.replaceState(null, '', window.location.pathname)
+    }
     
     // Restore body scroll and position
     document.body.style.position = ''

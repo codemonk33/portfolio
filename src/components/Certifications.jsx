@@ -44,6 +44,32 @@ const Certifications = () => {
     }
   }, [selectedCert])
 
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopState = (e) => {
+      if (selectedCert && (!e.state || !e.state.modalOpen)) {
+        // Back button was pressed, close modal without manipulating history
+        setSelectedCert(null)
+        
+        // Restore body scroll and position
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        document.body.style.overflow = ''
+        
+        // Restore scroll position instantly
+        window.scrollTo({
+          top: scrollPosition,
+          left: 0,
+          behavior: 'instant'
+        })
+      }
+    }
+    
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [selectedCert, scrollPosition])
+
   const certificationsData = [
     {
       id: 1,
@@ -151,6 +177,10 @@ const Certifications = () => {
     
     setSelectedCert(cert)
     
+    // Add to browser history for back button support
+    const state = { modalOpen: true, certId: cert.id }
+    window.history.pushState(state, '', `#cert-${cert.id}`)
+    
     // Prevent body scroll - preserve position
     document.body.style.position = 'fixed'
     document.body.style.top = `-${currentScrollY}px`
@@ -160,6 +190,12 @@ const Certifications = () => {
 
   const closeCert = () => {
     setSelectedCert(null)
+    
+    // Remove from browser history if we added it
+    if (window.location.hash.startsWith('#cert-')) {
+      // Replace current state to avoid adding extra history entries
+      window.history.replaceState(null, '', window.location.pathname)
+    }
     
     // Restore body scroll and position
     document.body.style.position = ''
