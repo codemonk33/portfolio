@@ -69,7 +69,7 @@ const Certifications = () => {
       date: "Ongoing",
       location: "Online",
       image: "DSA.jpg",
-      credentialId: "......",
+      credentialId: ".....",
       description: "This certification in Data Structures and Algorithms with C and C++ validates expertise in recursion, data structures, sorting, searching, and complexity analysis, showcasing analytical and optimization skills essential for efficient software development and system design.",
       skills: ["Implementation of Data Structures in C++",
 
